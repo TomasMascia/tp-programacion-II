@@ -1,42 +1,640 @@
 [
-  { "id": 1, "title": "The Last of Us Part I", "genre": "Acción / Supervivencia", "price": 69.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1888930/header.jpg" },
-  { "id": 2, "title": "The Last of Us Part II", "genre": "Acción / Aventura", "price": 49.99, "image": "https://preview.redd.it/the-last-of-us-part-ii-unofficial-wallpaper-4k-my-creation-v0-kwoftgqaoora1.png?auto=webp&s=b4463851b2bd5ca619f22146233805433bbb6752" },
-  { "id": 3, "title": "Grand Theft Auto V", "genre": "Mundo Abierto", "price": 29.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" },
-  { "id": 4, "title": "The Witcher 3: Wild Hunt", "genre": "RPG", "price": 39.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/292030/header.jpg" },
-  { "id": 5, "title": "Red Dead Redemption 2", "genre": "Aventura / Mundo Abierto", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1174180/header.jpg" },
-  { "id": 6, "title": "Elden Ring", "genre": "Action RPG / Souls", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1245620/header.jpg" },
-  { "id": 7, "title": "God of War", "genre": "Acción / Aventura", "price": 49.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1593500/header.jpg" },
-  { "id": 8, "title": "Cyberpunk 2077", "genre": "Action RPG", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1091500/header.jpg" },
-  { "id": 9, "title": "Minecraft", "genre": "Sandbox / Supervivencia", "price": 26.95, "image": "https://preview.redd.it/new-minecraft-art-cover-what-do-you-think-v0-jncj9eqr9bad1.jpeg?auto=webp&s=8ba0359485474ee23ca522d0fdddb59bdec9c250" },
-  { "id": 10, "title": "Hollow Knight", "genre": "Metroidvania", "price": 14.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/367520/header.jpg" },
-  { "id": 11, "title": "Baldur's Gate 3", "genre": "RPG por turnos", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1086940/header.jpg" },
-  { "id": 12, "title": "Hogwarts Legacy", "genre": "Action RPG", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/990080/header.jpg" },
-  { "id": 13, "title": "Resident Evil 4 Remake", "genre": "Survival Horror", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/2050650/header.jpg" },
-  { "id": 14, "title": "Marvel's Spider-Man Remastered", "genre": "Acción / Aventura", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1817070/header.jpg" },
-  { "id": 15, "title": "Dark Souls III", "genre": "Action RPG", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/374320/header.jpg" },
-  { "id": 16, "title": "Sekiro: Shadows Die Twice", "genre": "Acción / Aventura", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/814380/header.jpg" },
-  { "id": 17, "title": "Forza Horizon 5", "genre": "Carreras", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1551360/header.jpg" },
-  { "id": 18, "title": "DOOM Eternal", "genre": "FPS / Acción", "price": 39.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/782330/header.jpg" },
-  { "id": 19, "title": "Ghost of Tsushima Director's Cut", "genre": "Mundo Abierto / Acción", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/2215430/header.jpg" },
-  { "id": 20, "title": "Horizon Zero Dawn", "genre": "Action RPG", "price": 49.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1151640/header.jpg" },
-  { "id": 21, "title": "Cuphead", "genre": "Plataformas / Run and Gun", "price": 19.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/268910/header.jpg" },
-  { "id": 22, "title": "Dead Cells", "genre": "Roguelike / Acción", "price": 24.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/588650/header.jpg" },
-  { "id": 23, "title": "Hades", "genre": "Roguelike / Acción", "price": 24.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1145360/header.jpg" },
-  { "id": 24, "title": "Celeste", "genre": "Plataformas", "price": 19.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg" },
-  { "id": 25, "title": "Portal 2", "genre": "Puzzles", "price": 9.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/620/header.jpg" },
-  { "id": 26, "title": "Half-Life: Alyx", "genre": "VR / Shooter", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/546560/header.jpg" },
-  { "id": 27, "title": "Apex Legends", "genre": "Battle Royale", "price": 0.00, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1172470/header.jpg" },
-  { "id": 28, "title": "Counter-Strike 2", "genre": "Shooter Táctico", "price": 0.00, "image": "https://steamcdn-a.akamaihd.net/steam/apps/730/header.jpg" },
-  { "id": 29, "title": "Dota 2", "genre": "MOBA", "price": 0.00, "image": "https://steamcdn-a.akamaihd.net/steam/apps/570/header.jpg" },
-  { "id": 30, "title": "Team Fortress 2", "genre": "FPS / Multijugador", "price": 0.00, "image": "https://steamcdn-a.akamaihd.net/steam/apps/440/header.jpg" },
-  { "id": 31, "title": "Fallout: New Vegas", "genre": "RPG", "price": 9.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/22380/header.jpg" },
-  { "id": 32, "title": "Terraria", "genre": "Sandbox / Supervivencia", "price": 9.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/105600/header.jpg" },
-  { "id": 33, "title": "Stardew Valley", "genre": "Simulación / RPG", "price": 14.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/413150/header.jpg" },
-  { "id": 34, "title": "Monster Hunter: World", "genre": "Action RPG", "price": 29.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/582010/header.jpg" },
-  { "id": 35, "title": "Devil May Cry 5", "genre": "Hack and Slash", "price": 29.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/601150/header.jpg" },
-  { "id": 36, "title": "Subnautica", "genre": "Supervivencia", "price": 29.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/264710/header.jpg" },
-  { "id": 37, "title": "Sea of Thieves", "genre": "Aventura / Multijugador", "price": 39.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/1172620/header.jpg" },
-  { "id": 38, "title": "No Man's Sky", "genre": "Supervivencia / Exploración", "price": 59.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/275850/header.jpg" },
-  { "id": 39, "title": "Left 4 Dead 2", "genre": "FPS / Cooperativo", "price": 9.99, "image": "https://steamcdn-a.akamaihd.net/steam/apps/550/header.jpg" },
-  { "id": 40, "title": "Alan Wake 2", "genre": "Survival Horror", "price": 49.99, "image": "https://cdn1.epicgames.com/offer/c4763f236d08423eb47b4c3008779c84/EGS_AlanWake2_RemedyEntertainment_S1_2560x1440-ec44404c0b41bc457cb94cd72cf85872" }
+  {
+    "id": 1,
+    "title": "The Last of Us Part I",
+    "genre": [
+      "Acción",
+      "Supervivencia"
+    ],
+    "price": 69.99,
+    "image": "https://i.3djuegos.com/juegos/18551/the_last_of_us_remake/fotos/ficha/the_last_of_us_remake-5734703.webp"
+  },
+  {
+    "id": 2,
+    "title": "The Last of Us Part II",
+    "genre": [
+      "Acción",
+      "Aventura"
+    ],
+    "price": 49.99,
+    "image": "https://i.3djuegos.com/juegos/19404/the_last_of_us_parte_2__remastered/fotos/ficha/the_last_of_us_parte_2__remastered-5861102.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Grand Theft Auto V",
+    "genre": [
+      "Mundo Abierto",
+      "Acción"
+    ],
+    "price": 29.99,
+    "image": "https://i.blogs.es/2c9c70/gta-20v-20portada-20grande/450_1000.webp"
+  },
+  {
+    "id": 4,
+    "title": "The Witcher 3: Wild Hunt",
+    "genre": [
+      "RPG",
+      "Mundo Abierto"
+    ],
+    "price": 39.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.53717.65858607118306853.39ed2a08-df0d-4ae1-aee0-c66ffb783a34.80ba72da-abfb-4af6-81f2-a443d12fb870"
+  },
+  {
+    "id": 5,
+    "title": "Red Dead Redemption 2",
+    "genre": [
+      "Aventura",
+      "Mundo Abierto",
+      "Acción"
+    ],
+    "price": 59.99,
+    "image": "https://i.blogs.es/juegos/13424/red_dead_3__nombre_temporal_/fotos/maestras/red_dead_3__nombre_temporal_-4030936.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Elden Ring",
+    "genre": [
+      "Action RPG",
+      "Souls",
+      "Mundo Abierto"
+    ],
+    "price": 59.99,
+    "image": "https://i.3djuegos.com/juegos/16678/elden_ring/fotos/ficha/elden_ring-5953540.jpg"
+  },
+  {
+    "id": 7,
+    "title": "God of War",
+    "genre": [
+      "Acción",
+      "Aventura"
+    ],
+    "price": 49.99,
+    "image": "https://i.3djuegos.com/juegos/17544/god_of_war_ragnarok/fotos/ficha/god_of_war_ragnarok-5732812.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Cyberpunk 2077",
+    "genre": [
+      "Action RPG",
+      "Mundo Abierto",
+      "Ciencia Ficción"
+    ],
+    "price": 59.99,
+    "image": "https://i.3djuegos.com/juegos/18743/cyberpunk_2077_phantom_liberty/fotos/ficha/cyberpunk_2077_phantom_liberty-5816534.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Minecraft",
+    "genre": [
+      "Sandbox",
+      "Supervivencia"
+    ],
+    "price": 26.95,
+    "image": "https://i.pinimg.com/originals/1b/9f/77/1b9f772d10ae2cfce18fab1b05705810.png"
+  },
+  {
+    "id": 10,
+    "title": "Hollow Knight",
+    "genre": [
+      "Metroidvania",
+      "Plataformas",
+      "Indie"
+    ],
+    "price": 14.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.58959.13847644057609868.8865d2a2-5e11-4424-85ce-1db30a161bd9.41ca3834-331c-4d34-b2c9-7dfe318fd168"
+  },
+  {
+    "id": 11,
+    "title": "Baldur's Gate 3",
+    "genre": [
+      "RPG",
+      "Estrategia",
+      "Por turnos"
+    ],
+    "price": 59.99,
+    "image": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/100a5dc417414ddb04630e98c7ce49c00059a6c30aba826e.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Hogwarts Legacy",
+    "genre": [
+      "Action RPG",
+      "Mundo Abierto",
+      "Aventura"
+    ],
+    "price": 59.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.6642.13668282042107954.990e31ce-5b94-4058-beec-37b32e211c05.46dc11ff-dcf6-425c-8aaf-5b474edd9def"
+  },
+  {
+    "id": 13,
+    "title": "Resident Evil 4 Remake",
+    "genre": [
+      "Survival Horror",
+      "Acción"
+    ],
+    "price": 59.99,
+    "image": "https://i.3djuegos.com/juegos/18541/resident_evil_4_remake/fotos/ficha/resident_evil_4_remake-5789986.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Marvel's Spider-Man Remastered",
+    "genre": [
+      "Acción",
+      "Aventura",
+      "Mundo Abierto"
+    ],
+    "price": 59.99,
+    "image": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/BtsjAgHT9pqHRXtN9FCk7xc8.png"
+  },
+  {
+    "id": 15,
+    "title": "Dark Souls III",
+    "genre": [
+      "Action RPG",
+      "Souls",
+      "Fantasía Oscura"
+    ],
+    "price": 59.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.24212.71827372323164480.6e97c7d2-899a-404f-8660-d622a7fc9162.daea9ed5-4921-45a6-a188-637bfab7176c"
+  },
+  {
+    "id": 16,
+    "title": "Sekiro: Shadows Die Twice",
+    "genre": [
+      "Acción",
+      "Aventura"
+    ],
+    "price": 59.99,
+    "image": "https://assetsio.gnwcdn.com/co2a23.jpg?width=2048&height=2048&fit=bounds&quality=85&format=jpg&auto=webp"
+  },
+  {
+    "id": 17,
+    "title": "Forza Horizon 5",
+    "genre": [
+      "Carreras",
+      "Mundo Abierto",
+      "Simulación"
+    ],
+    "price": 59.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.49800.13718773309227929.bebdcc0e-1ed5-4778-8732-f4ef65a2f445.9ac09d39-064d-466c-81ca-2f1b6f0b95c5"
+  },
+  {
+    "id": 18,
+    "title": "DOOM Eternal",
+    "genre": [
+      "FPS",
+      "Acción"
+    ],
+    "price": 39.99,
+    "image": "https://m.media-amazon.com/images/M/MV5BZGY4ODZmZjMtNjY0NS00MWMzLTkzNGUtZTAxZDI0YzU1YWJmXkEyXkFqcGc@._V1_.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Ghost of Tsushima Director's Cut",
+    "genre": [
+      "Mundo Abierto",
+      "Acción",
+      "Aventura"
+    ],
+    "price": 59.99,
+    "image": "https://pics.filmaffinity.com/ghost_of_tsushima-500421980-large.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Horizon Zero Dawn",
+    "genre": [
+      "Action RPG",
+      "Aventura",
+      "Mundo Abierto"
+    ],
+    "price": 49.99,
+    "image": "https://i.3djuegos.com/juegos/20011/horizon_zero_dawn_remastered/fotos/ficha/horizon_zero_dawn_remastered-5923926.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Cuphead",
+    "genre": [
+      "Plataformas",
+      "Run and Gun",
+      "Indie"
+    ],
+    "price": 19.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.37905.13670972585585116.7f29dc82-c969-4e89-aaf9-7c0e3f52d890.2e5a9c92-cf00-4c10-ae28-264c564478c3"
+  },
+  {
+    "id": 22,
+    "title": "Dead Cells",
+    "genre": [
+      "Roguelike",
+      "Acción",
+      "Metroidvania"
+    ],
+    "price": 24.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.33704.68724117649475771.eac68952-84aa-42f0-875b-09de4c2ee208.c6483868-0337-4d5f-bc1f-36132804e3d7"
+  },
+  {
+    "id": 23,
+    "title": "Hades",
+    "genre": [
+      "Roguelike",
+      "Acción",
+      "Indie"
+    ],
+    "price": 24.99,
+    "image": "https://image.api.playstation.com/vulcan/img/rnd/202107/3019/PjItj51ArWa2bT86PVyR6OMI.jpg"
+  },
+  {
+    "id": 24,
+    "title": "Celeste",
+    "genre": [
+      "Plataformas",
+      "Indie"
+    ],
+    "price": 19.99,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Celeste_box_art_full.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+  },
+  {
+    "id": 25,
+    "title": "Portal 2",
+    "genre": [
+      "Puzzles",
+      "Ciencia Ficción",
+      "Primera Persona"
+    ],
+    "price": 9.99,
+    "image": "https://i.pinimg.com/736x/3e/22/8b/3e228b973268b303823745563be874c5.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Half-Life: Alyx",
+    "genre": [
+      "VR",
+      "FPS",
+      "Ciencia Ficción"
+    ],
+    "price": 59.99,
+    "image": "https://i.3djuegos.com/juegos/16987/halflife_alyx/fotos/ficha/halflife_alyx-5024653.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Apex Legends",
+    "genre": [
+      "Battle Royale",
+      "FPS",
+      "Multijugador"
+    ],
+    "price": 0.00,
+    "image": "https://i.3djuegos.com/juegos/16414/apex_legends/fotos/ficha/apex_legends-5976086.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Counter-Strike 2",
+    "genre": [
+      "Shooter Táctico",
+      "FPS",
+      "Competitivo"
+    ],
+    "price": 0.00,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/730/library_600x900_2x.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Dota 2",
+    "genre": [
+      "MOBA",
+      "Estrategia",
+      "Multijugador"
+    ],
+    "price": 0.00,
+    "image": "https://m.media-amazon.com/images/M/MV5BYWI3YzE2NTUtOGI3Yi00YjNlLWIxOTUtODhmMjBjYjkzOGQ4XkEyXkFqcGc@._V1_.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Fallout: New Vegas",
+    "genre": [
+      "RPG",
+      "Mundo Abierto",
+      "Postapocalíptico"
+    ],
+    "price": 9.99,
+    "image": "https://static.wikia.nocookie.net/fallout/images/c/cc/FNV_box_art_%28USA%29.jpg/revision/latest?cb=20160226022211&path-prefix=es"
+  },
+  {
+    "id": 32,
+    "title": "Terraria",
+    "genre": [
+      "Sandbox",
+      "Supervivencia",
+      "Aventura"
+    ],
+    "price": 9.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.31019.70406876433810089.4beffaca-3fee-4154-a21f-ecd9b3bedbb3.cc90d42b-0620-473e-a51e-52f0e5ff8454"
+  },
+  {
+    "id": 33,
+    "title": "Stardew Valley",
+    "genre": [
+      "Simulación",
+      "RPG",
+      "Indie"
+    ],
+    "price": 14.99,
+    "image": "https://i.3djuegos.com/juegos/12908/stardew_valley/fotos/ficha/stardew_valley-3324716.jpg"
+  },
+  {
+    "id": 34,
+    "title": "Monster Hunter: World",
+    "genre": [
+      "Action RPG",
+      "Caza",
+      "Multijugador"
+    ],
+    "price": 29.99,
+    "image": "https://assetsio.gnwcdn.com/co1rst.jpg?width=2048&height=2048&fit=bounds&quality=85&format=jpg&auto=webp"
+  },
+  {
+    "id": 35,
+    "title": "Devil May Cry 5",
+    "genre": [
+      "Hack and Slash",
+      "Acción"
+    ],
+    "price": 29.99,
+    "image": "https://assets.games.gg/devil_may_cry_5_cover_9e00ba42d5.webp"
+  },
+  {
+    "id": 36,
+    "title": "Subnautica",
+    "genre": [
+      "Supervivencia",
+      "Mundo Abierto",
+      "Exploración"
+    ],
+    "price": 29.99,
+    "image": "https://store-images.s-microsoft.com/image/apps.24838.63409341877910445.4fd452e1-c3ee-4448-a0f8-ac6eb6bdaabf.d531d87c-d1b7-497f-b802-baabfb728090"
+  },
+  {
+    "id": 37,
+    "title": "Sea of Thieves",
+    "genre": [
+      "Aventura",
+      "Multijugador",
+      "Mundo Abierto"
+    ],
+    "price": 39.99,
+    "image": "https://seaofthieves.wiki.gg/images/Sea_of_Thieves_cover_art.jpg?380d5e"
+  },
+  {
+    "id": 38,
+    "title": "No Man's Sky",
+    "genre": [
+      "Supervivencia",
+      "Exploración Espacial",
+      "Mundo Abierto"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/275850/header.jpg"
+  },
+  {
+    "id": 39,
+    "title": "Left 4 Dead 2",
+    "genre": [
+      "FPS",
+      "Zombis",
+      "Cooperativo"
+    ],
+    "price": 9.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/550/header.jpg"
+  },
+  {
+    "id": 40,
+    "title": "Alan Wake 2",
+    "genre": [
+      "Survival Horror",
+      "Misterio",
+      "Acción"
+    ],
+    "price": 49.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTfIlgteALcIa41TFqDNbSn7ZCZrRtpVjNuHJslFy52hdwTD1GrcebfE&s=10"
+  },
+  {
+    "id": 41,
+    "title": "Helldivers 2",
+    "genre": [
+      "Shooter Cooperativo",
+      "Acción",
+      "Ciencia Ficción"
+    ],
+    "price": 39.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/553850/header.jpg"
+  },
+  {
+    "id": 42,
+    "title": "Black Myth: Wukong",
+    "genre": [
+      "Action RPG",
+      "Mitología",
+      "Acción"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/2358720/header.jpg"
+  },
+  {
+    "id": 43,
+    "title": "Palworld",
+    "genre": [
+      "Supervivencia",
+      "Mundo Abierto",
+      "Crafteo"
+    ],
+    "price": 29.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1623730/header.jpg"
+  },
+  {
+    "id": 44,
+    "title": "Lies of P",
+    "genre": [
+      "Action RPG",
+      "Souls",
+      "Fantasía Oscura"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1627720/header.jpg"
+  },
+  {
+    "id": 45,
+    "title": "Armored Core VI: Fires of Rubicon",
+    "genre": [
+      "Acción",
+      "Mechas",
+      "Ciencia Ficción"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1888120/header.jpg"
+  },
+  {
+    "id": 46,
+    "title": "Starfield",
+    "genre": [
+      "RPG",
+      "Ciencia Ficción",
+      "Mundo Abierto"
+    ],
+    "price": 69.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1716740/header.jpg"
+  },
+  {
+    "id": 47,
+    "title": "Rust",
+    "genre": [
+      "Supervivencia",
+      "Multijugador",
+      "Crafteo"
+    ],
+    "price": 39.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/252490/header.jpg"
+  },
+  {
+    "id": 48,
+    "title": "The Forest",
+    "genre": [
+      "Survival Horror",
+      "Supervivencia",
+      "Crafteo"
+    ],
+    "price": 19.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/242760/header.jpg"
+  },
+  {
+    "id": 49,
+    "title": "Sons of the Forest",
+    "genre": [
+      "Survival Horror",
+      "Supervivencia",
+      "Cooperativo"
+    ],
+    "price": 29.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1326470/header.jpg"
+  },
+  {
+    "id": 50,
+    "title": "Lethal Company",
+    "genre": [
+      "Terror Cooperativo",
+      "Indie",
+      "Supervivencia"
+    ],
+    "price": 9.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/header.jpg"
+  },
+  {
+    "id": 51,
+    "title": "Phasmophobia",
+    "genre": [
+      "Terror Psicológico",
+      "Cooperativo",
+      "VR"
+    ],
+    "price": 13.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/739630/header.jpg"
+  },
+  {
+    "id": 52,
+    "title": "Project Zomboid",
+    "genre": [
+      "Supervivencia",
+      "RPG",
+      "Zombis"
+    ],
+    "price": 19.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/108600/header.jpg"
+  },
+  {
+    "id": 53,
+    "title": "Deep Rock Galactic",
+    "genre": [
+      "FPS",
+      "Cooperativo",
+      "Acción"
+    ],
+    "price": 29.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/548430/header.jpg"
+  },
+  {
+    "id": 54,
+    "title": "PAYDAY 2",
+    "genre": [
+      "FPS",
+      "Robos",
+      "Cooperativo"
+    ],
+    "price": 9.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/218620/header.jpg"
+  },
+  {
+    "id": 55,
+    "title": "Street Fighter 6",
+    "genre": [
+      "Lucha",
+      "2D",
+      "Competitivo"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1364780/header.jpg"
+  },
+  {
+    "id": 56,
+    "title": "TEKKEN 8",
+    "genre": [
+      "Lucha",
+      "3D",
+      "Competitivo"
+    ],
+    "price": 69.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1778820/header.jpg"
+  },
+  {
+    "id": 57,
+    "title": "Guilty Gear -Strive-",
+    "genre": [
+      "Lucha",
+      "Anime",
+      "Competitivo"
+    ],
+    "price": 39.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1384160/header.jpg"
+  },
+  {
+    "id": 58,
+    "title": "NieR:Automata",
+    "genre": [
+      "Action RPG",
+      "Hack and Slash",
+      "Ciencia Ficción"
+    ],
+    "price": 39.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/524220/header.jpg"
+  },
+  {
+    "id": 59,
+    "title": "Persona 5 Royal",
+    "genre": [
+      "JRPG",
+      "Por turnos",
+      "Anime"
+    ],
+    "price": 59.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1687950/header.jpg"
+  },
+  {
+    "id": 60,
+    "title": "FINAL FANTASY VII REMAKE INTERGRADE",
+    "genre": [
+      "Action RPG",
+      "Fantasía",
+      "Aventura"
+    ],
+    "price": 69.99,
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1462040/header.jpg"
+  }
 ]
