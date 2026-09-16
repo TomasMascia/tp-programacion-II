@@ -15,6 +15,17 @@
     --shadow-hover: 0 10px 30px rgba(139, 92, 246, 0.25);
 }
 
+[data-theme="light"] {
+    --bg-primary: #f4f4f5;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --bg-header: #ffffff;
+    --border-color: #e4e4e7;
+    --text-primary: #18181b;
+    --text-secondary: #71717a;
+    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -113,11 +124,35 @@ body {
 .div_header_site {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+}
+
+/* Botón Tema */
+#theme-page,
+#theme-page-movil {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#theme-page:hover,
+#theme-page-movil:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+#theme-page-movil {
+    display: none;
 }
 
 /* ------------------------ MAIN ------------------------*/
 .main-container {
     margin-top: 150px;
+    padding: 0 2rem;
 }
 
 .controls-section {
@@ -149,87 +184,165 @@ body {
 }
 
 /* ------------------------ TARJETAS DE LOS JUEGOS ------------------------*/
+
 #games-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     width: 100%;
     max-width: 1500px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 1rem 0;
-    margin-top: 30px;
 }
 
 .game-card {
-    background-color: #1b1b1b;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .game-card:hover {
     transform: translateY(-4px);
+    border-color: var(--border-purple);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
 
 .card-media img {
     width: 100%;
     aspect-ratio: 460 / 215;
     object-fit: cover;
-    display: flex;
+    display: block;
 }
 
 .card-body {
-    padding: 1rem;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
 .card-title {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
+    color: var(--text-primary);
 }
 
 .card-genres {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px;
-    margin-bottom: 4px;
+    gap: 4px;
+    margin-bottom: 8px;
 }
 
 .badge {
-    background-color: #564464;
-    color: #b38bf0;
+    background-color: var(--accent-purple-light);
+    color: var(--accent-purple);
+    border: 1px solid var(--border-purple);
     font-size: 0.75rem;
-    padding: 3px 3px;
-    border-radius: 3px;
+    padding: 3px 6px;
+    border-radius: 4px;
 }
 
 .card-price {
-    margin-top: 8px;
-    font-size: 23px;
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #ae00ffc4;
+    color: var(--accent-purple);
 }
 
+/* Botones dentro de la tarjeta */
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
 
+.btn-add-cart,
+.btn-add-wishlist {
+    padding: 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: var(--transition);
+}
 
+.btn-add-cart {
+    flex: 1;
+    background-color: var(--accent-purple);
+    color: #ffffff;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--accent-purple-hover);
+}
+
+.btn-add-wishlist {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.6rem 0.8rem;
+}
+
+.btn-add-wishlist:hover,
+.btn-add-wishlist.active {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+/* ------------------------ TOAST NOTIFICATIONS ------------------------*/
+.toast-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-purple);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    animation: fadeIn 0.25s ease, fadeOut 0.25s ease 2.75s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+}
 
 /* ------------------------ FOOTER ------------------------*/
-
 footer {
-    margin-top: auto;
+    margin-top: 4rem;
     padding: 1.5rem;
     text-align: center;
     border-top: 1px solid var(--border-color);
@@ -250,18 +363,12 @@ footer {
     display: none;
 }
 
+@media (max-width: 768px) {
+    .nav_header_site {
+        display: none;
+    }
 
-
-
-/* ------------------------ PERFIL ------------------------*/
-
-
-.perfil-hero {
-    width: 100%;
-    margin-top: -30px;
-}
-
-.perfil-hero-image {
-    width: 100%;
-    opacity: 30%;
+    #theme-page-movil {
+        display: block;
+    }
 }

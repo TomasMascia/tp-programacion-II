@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Videojuegos - GamesShop</title>
 
-    <!-- ICONOS (TENGO QUE VER SI LOS SACO) -->
+    <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- ESTILOS -->
@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <!--HEADER-->
+    <!-- HEADER -->
     <header class="header_site">
         <!-- LOGO DE LA PAGINA PRINCIPAL -->
-        <a class="link_header_site" href="./index.html">
+        <a class="link_header_site" href="../index.html">
             <img class="img_header_site" src="../assets/images/icono.png" alt="Icono de la pagina">
         </a>
 
@@ -26,25 +26,25 @@
             <ul class="ul_header_site">
                 <li><a class="li_header_site" href="../index.html">Inicio</a></li>
                 <li><a class="li_header_site" href="./catalogo.html">Catálogo</a></li>
-                <li><a class="li_header_site" href="./carrito.html">Carrito</a></li>
+                <li><a class="li_header_site" href="./carrito.html">Carrito <span id="cart-counter">(0)</span></a></li>
                 <li><a class="li_header_site" href="./lista-deseados.html">Lista de deseados</a></li>
                 <li><a class="li_header_site" href="./perfil.html">Perfil</a></li>
             </ul>
         </nav>
-        <!-- BOTONES PARA CAMBIAR DE TEMA -->
-        <div>
+
+        <!-- BOTONES DE CONTROL -->
+        <div class="div_header_site">
             <!-- COMPUTADORA -->
             <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche"
                 title="Cambiar a Modo Día / Modo Noche">
-                <h4>theme</h4>
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
             </button>
 
-            <!--MOVIL-->
+            <!-- MOVIL -->
             <button type="button" id="theme-page-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
                 <h4>menu</h4>
             </button>
         </div>
-    </header>
     </header>
 
     <!-- MAIN-CATALOGO -->
@@ -61,14 +61,14 @@
         <!-- CONTENEDOR DINAMICO CON JS -->
         <section id="games-container"></section>
 
-        <!-- MENSAJE SI NO ENCUENTA COINCIDENCIA -->
+        <!-- MENSAJE SI NO ENCUENTRA COINCIDENCIA -->
         <div id="no-results" class="no-results hidden">
             <p>No se encontraron juegos que coincidan con tu búsqueda.</p>
         </div>
 
     </main>
 
-    <!-- MENSAJE QUE APARECE AL AGREGAR AL CARRITO O  -->
+    <!-- NOTIFICACIONES TOAST -->
     <div id="toast-container" class="toast-container"></div>
 
     <!-- FOOTER -->
@@ -76,7 +76,7 @@
         <p>&copy; GamesShop - Trabajo Práctico Programación II</p>
     </footer>
 
-    <!-- SCRIPT  -->
+    <!-- SCRIPT -->
     <script src="../js/app.js"></script>
 </body>
 

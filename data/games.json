@@ -547,7 +547,7 @@
       "Zombis"
     ],
     "price": 19.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/108600/header.jpg"
+    "image": "https://wallpapers.com/images/hd/project-zomboid-survivor-defense-ovf8c3rg4oz1p51x.jpg"
   },
   {
     "id": 53,
@@ -558,7 +558,7 @@
       "Acción"
     ],
     "price": 29.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/548430/header.jpg"
+    "image": "https://images.steamusercontent.com/ugc/5090788033229140426/840DFFE8246D5E50105CE7B48381683BA94D08A0/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
   },
   {
     "id": 54,
@@ -569,7 +569,7 @@
       "Cooperativo"
     ],
     "price": 9.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/218620/header.jpg"
+    "image": "https://assetsio.gnwcdn.com/arcue.jpg?width=2048&height=2048&fit=bounds&quality=85&format=jpg&auto=webp"
   },
   {
     "id": 55,
@@ -580,7 +580,7 @@
       "Competitivo"
     ],
     "price": 59.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1364780/header.jpg"
+    "image": "https://i0.wp.com/gamingrespawn.com/wp-content/uploads/2023/06/street-fighter-6-3274820019.jpg?fit=1920%2C1080&ssl=1"
   },
   {
     "id": 56,
@@ -591,18 +591,17 @@
       "Competitivo"
     ],
     "price": 69.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1778820/header.jpg"
+    "image": "https://gmedia.playstation.com/is/image/SIEPDC/tekken-8-keyart-01-en-15may23?$native$"
   },
   {
     "id": 57,
-    "title": "Guilty Gear -Strive-",
+    "title": "A plague tale",
     "genre": [
-      "Lucha",
-      "Anime",
-      "Competitivo"
+      "Acción",
+      "Aventura"
     ],
     "price": 39.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1384160/header.jpg"
+    "image": "https://cdn1.epicgames.com/salesEvent/salesEvent/1bbe911a-6c89-490c-9230-cdd99c3be4b5_2560x1440-1c47786e1130e040a090368a1551a627"
   },
   {
     "id": 58,
@@ -613,7 +612,7 @@
       "Ciencia Ficción"
     ],
     "price": 39.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/524220/header.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cJgnNuRO5qZEzR7MOWAJ8CBnRaKHTEhmP1idqmiu3cokuIaAKKRCYMs&s=10"
   },
   {
     "id": 59,
@@ -624,7 +623,7 @@
       "Anime"
     ],
     "price": 59.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1687950/header.jpg"
+    "image": "https://images.steamusercontent.com/ugc/2019355369832417157/0589A1EE3E6E97247D21B72A5DBB8E25ECAC171F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
   },
   {
     "id": 60,
@@ -635,6 +634,6 @@
       "Aventura"
     ],
     "price": 69.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1462040/header.jpg"
+    "image": "https://gh.cdn.sewest.net/assets/ident/pulse/a218ace0/FFVIIRINTERGRADE_Available_Now-1vq9ttoa5.jpg?quality=65"
   }
 ]
