@@ -63,7 +63,7 @@ body {
 }
 
 .img_header_site {
-    height: 80px;
+    height: 60px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -82,7 +82,7 @@ body {
 .ul_header_site {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 24px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -94,8 +94,8 @@ body {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 700;
-    font-size: 1rem;
-    padding: 0.5rem 0.9rem;
+    font-size: 16px;
+    padding: 8px 14px;
     border-radius: 8px;
     transition: color 0.2s ease, background-color 0.2s ease;
 }
@@ -118,13 +118,13 @@ body {
 }
 
 .li_header_site:hover::after {
-    width: calc(100% - 1.8rem);
+    width: calc(100% - 28px);
 }
 
 .div_header_site {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
 /* Botón Tema */
@@ -133,7 +133,7 @@ body {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 0.5rem 0.8rem;
+    padding: 8px 13px;
     border-radius: 8px;
     cursor: pointer;
     transition: var(--transition);
@@ -152,7 +152,7 @@ body {
 /* ------------------------ MAIN ------------------------*/
 .main-container {
     margin-top: 150px;
-    padding: 0 2rem;
+    padding: 0 32px;
 }
 
 .controls-section {
@@ -168,8 +168,8 @@ body {
 
 #search-input {
     width: 100%;
-    padding: 0.85rem 1.25rem;
-    font-size: 1rem;
+    padding: 14px 20px;
+    font-size: 16px;
     border-radius: 9999px;
     border: 2px solid var(--border-color);
     background-color: var(--bg-card);
@@ -185,14 +185,19 @@ body {
 
 /* ------------------------ TARJETAS DE LOS JUEGOS ------------------------*/
 
+.total-card>* {
+    text-decoration: none;
+}
+
+
 #games-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 24px;
     width: 100%;
     max-width: 1500px;
     margin: 30px auto;
-    padding: 1rem 0;
+    padding: 16px 0;
 }
 
 .game-card {
@@ -220,15 +225,15 @@ body {
 }
 
 .card-body {
-    padding: 1.2rem;
+    padding: 19px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .card-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 18px;
+    margin-bottom: 8px;
     color: var(--text-primary);
 }
 
@@ -243,7 +248,7 @@ body {
     background-color: var(--accent-purple-light);
     color: var(--accent-purple);
     border: 1px solid var(--border-purple);
-    font-size: 0.75rem;
+    font-size: 12px;
     padding: 3px 6px;
     border-radius: 4px;
 }
@@ -251,7 +256,7 @@ body {
 .card-price {
     margin-top: auto;
     padding-top: 10px;
-    font-size: 1.3rem;
+    font-size: 21px;
     font-weight: bold;
     color: var(--accent-purple);
 }
@@ -259,13 +264,13 @@ body {
 /* Botones dentro de la tarjeta */
 .card-actions {
     display: flex;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
+    gap: 8px;
+    margin-top: 13px;
 }
 
 .btn-add-cart,
 .btn-add-wishlist {
-    padding: 0.6rem;
+    padding: 10px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
@@ -287,7 +292,7 @@ body {
     background-color: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
-    padding: 0.6rem 0.8rem;
+    padding: 10px 13px;
 }
 
 .btn-add-wishlist:hover,
@@ -314,10 +319,10 @@ body {
     border-top: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    padding: 0.8rem 1.2rem;
+    padding: 13px 19px;
     border-radius: 6px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    font-size: 0.9rem;
+    font-size: 14px;
     animation: fadeIn 0.25s ease, fadeOut 0.25s ease 2.75s forwards;
 }
 
@@ -342,21 +347,21 @@ body {
 
 /* ------------------------ FOOTER ------------------------*/
 footer {
-    margin-top: 4rem;
-    padding: 1.5rem;
+    margin-top: 64px;
+    padding: 24px;
     text-align: center;
     border-top: 1px solid var(--border-color);
     background-color: var(--bg-header);
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 /* ------------------------ OTROS ------------------------*/
 .no-results {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 64px 16px;
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 18px;
 }
 
 .hidden {
@@ -371,4 +376,14 @@ footer {
     #theme-page-movil {
         display: block;
     }
+}
+
+/* ------------------------ OTROS ------------------------*/
+
+#background-game-image {
+    padding-top: 95px;
+    width: 100wh;
+    height: 100vh;
+    background-image: url(../assets/images/perfil-image-bk.avif);
+    background-position: center;
 }
