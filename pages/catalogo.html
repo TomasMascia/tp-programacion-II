@@ -4,85 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Videojuegos - GamesShop</title>
-
-    <!-- ICONOS -->
-     <link rel="icon" href="../assets/images/icono.png">
+    <link rel="icon" href="../assets/images/icono.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- ESTILOS -->
+    <!--Fuente Montserrat-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <script>
-        // Carga inmediata del tema guardado antes de que renderice la página
         const savedTheme = localStorage.getItem("theme") || "dark";
         document.documentElement.setAttribute("data-theme", savedTheme);
     </script>
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header class="header_site">
-        <!-- LOGO DE LA PAGINA PRINCIPAL -->
-        <a class="link_header_site" href="../index.html">
-            <img class="img_header_site" src="../assets/images/icono.png" alt="Icono de la pagina">
+    <!-- header -->
+    <header class="encabezado">
+        <a class="logo-sitio" href="../index.html">
+            <img class="logo-imagen" src="../assets/images/icono.png" alt="Icono de la pagina">
         </a>
-
-        <!-- MENU DE NAVEGACION -->
-        <nav class="nav_header_site">
-            <ul class="ul_header_site">
-                <li><a class="li_header_site" href="../index.html">Inicio</a></li>
-                <li><a class="li_header_site" href="./catalogo.html">Catálogo</a></li>
-                <li><a class="li_header_site" href="./carrito.html">Carrito <span id="cart-counter">(0)</span></a></li>
-                <li><a class="li_header_site" href="./lista-deseados.html">Lista de deseados</a></li>
-                <li><a class="li_header_site" href="./perfil.html">Perfil</a></li>
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li><a class="enlace-menu" href="../index.html">Inicio</a></li>
+                <li><a class="enlace-menu" href="./catalogo.html">Catálogo</a></li>
+                <li><a class="enlace-menu" href="./carrito.html">Carrito</a></li>
+                <li><a class="enlace-menu" href="./lista-deseados.html">Lista de deseados</a></li>
             </ul>
         </nav>
 
-        <!-- BOTONES DE CONTROL -->
-        <div class="div_header_site">
-            <!-- COMPUTADORA -->
-            <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche"
+        <!-- botones -->
+        <div class="acciones-encabezado">
+            <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche"
                 title="Cambiar a Modo Día / Modo Noche">
-                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <i class="fa-solid fa-moon" id="icono-tema"></i>
             </button>
 
-            <!-- MOVIL -->
-            <button type="button" id="theme-page-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
+            <button type="button" id="boton-tema-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
                 <h4>menu</h4>
             </button>
         </div>
     </header>
 
-    <!-- MAIN-CATALOGO -->
-    <main class="main-container">
+    <!-- main -->
+    <main class="contenedor-principal">
 
-        <!-- BUSCADOR -->
-        <section class="controls-section">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Buscar por título o género..." autocomplete="off"
+        <section class="seccion-buscador">
+            <div class="caja-buscador">
+                <input type="text" id="buscador-juegos" placeholder="Buscar por título o género..." autocomplete="off"
                     aria-label="Buscar videojuegos">
             </div>
         </section>
-
-        <!-- CONTENEDOR DINAMICO CON JS -->
-        <section id="games-container"></section>
-
-        <!-- MENSAJE SI NO ENCUENTRA COINCIDENCIA -->
-        <div id="no-results" class="no-results hidden">
+        <section id="contenedor-juegos"></section>
+        <!-- no encuentra -->
+        <div id="sin-resultados" class="sin-resultados oculto">
             <p>No se encontraron juegos que coincidan con tu búsqueda.</p>
         </div>
 
     </main>
 
-    <!-- NOTIFICACIONES TOAST -->
-    <div id="toast-container" class="toast-container"></div>
-
-    <!-- FOOTER -->
+    <!-- footer -->
     <footer>
-        <p>&copy; GamesShop - Trabajo Práctico Programación II</p>
+        <p>Programacion II - Trabajo Práctico</p>
     </footer>
-
-    <!-- SCRIPT -->
     <script src="../js/app.js"></script>
 </body>
 

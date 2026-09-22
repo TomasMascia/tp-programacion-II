@@ -7,7 +7,8 @@
       "Supervivencia"
     ],
     "price": 69.99,
-    "image": "https://images8.alphacoders.com/124/1246104.png"
+    "image": "https://images8.alphacoders.com/124/1246104.png",
+    "trailer": "https://www.youtube.com/watch?v=WxjeV19pfl8"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
       "Aventura"
     ],
     "price": 49.99,
-    "image": "https://i.redd.it/kwoftgqaoora1.png"
+    "image": "https://i.redd.it/kwoftgqaoora1.png",
+    "trailer": "https://www.youtube.com/watch?v=qPNiIeKMHyg"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
       "Acción"
     ],
     "price": 29.99,
-    "image": "https://wallpapers.com/images/featured/gta-5-qpjtjdxwbwrk4gyj.jpg"
+    "image": "https://wallpapers.com/images/featured/gta-5-qpjtjdxwbwrk4gyj.jpg",
+    "trailer": "https://www.youtube.com/watch?v=QkkoHAzjnUs"
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
       "Mundo Abierto"
     ],
     "price": 39.99,
-    "image": "https://forums.cdprojektred.com/index.php?attachments/witcher_3_next_gen-1920x1080-rgb-en-png.11244274/"
+    "image": "https://forums.cdprojektred.com/index.php?attachments/witcher_3_next_gen-1920x1080-rgb-en-png.11244274/",
+    "trailer": "https://www.youtube.com/watch?v=c0i88t0Kacs"
   },
   {
     "id": 5,
@@ -48,7 +52,8 @@
       "Acción"
     ],
     "price": 59.99,
-    "image": "https://wallpapers.com/images/featured/red-dead-redemption-2-4k-h93m94yxqtqno6jx.jpg"
+    "image": "https://wallpapers.com/images/featured/red-dead-redemption-2-4k-h93m94yxqtqno6jx.jpg",
+    "trailer": "https://www.youtube.com/watch?v=eaW0tYpxyp0"
   },
   {
     "id": 6,
@@ -59,7 +64,8 @@
       "Mundo Abierto"
     ],
     "price": 59.99,
-    "image": "https://images4.alphacoders.com/115/1151249.jpg"
+    "image": "https://images4.alphacoders.com/115/1151249.jpg",
+    "trailer": "https://www.youtube.com/watch?v=E3Huy2cdIH0"
   },
   {
     "id": 7,
@@ -69,7 +75,8 @@
       "Aventura"
     ],
     "price": 49.99,
-    "image": "https://images2.alphacoders.com/137/1370582.jpeg"
+    "image": "https://images2.alphacoders.com/137/1370582.jpeg",
+    "trailer": "https://www.youtube.com/watch?v=K0u_kAWLJOA"
   },
   {
     "id": 8,
@@ -80,7 +87,8 @@
       "Ciencia Ficción"
     ],
     "price": 59.99,
-    "image": "https://i.blogs.es/29a8b9/cp77-kv-en-1-/1366_2000.jpeg"
+    "image": "https://i.blogs.es/29a8b9/cp77-kv-en-1-/1366_2000.jpeg",
+    "trailer": "https://www.youtube.com/watch?v=8X2kIfS6fb8"
   },
   {
     "id": 9,
@@ -90,7 +98,8 @@
       "Supervivencia"
     ],
     "price": 26.95,
-    "image": "https://wallpapercave.com/wp/wp2570709.jpg"
+    "image": "https://wallpapercave.com/wp/wp2570709.jpg",
+    "trailer": "https://www.youtube.com/watch?v=MmB9b5njVbA"
   },
   {
     "id": 10,
@@ -101,18 +110,20 @@
       "Indie"
     ],
     "price": 14.99,
-    "image": "https://gaming-cdn.com/images/products/2198/orig/hollow-knight-pc-mac-steam-cover.jpg?v=1755854893"
+    "image": "https://gaming-cdn.com/images/products/2198/orig/hollow-knight-pc-mac-steam-cover.jpg?v=1755854893",
+    "trailer": "https://www.youtube.com/watch?v=UAO2urG23S4"
   },
   {
     "id": 11,
-    "title": "Baldur's Gate 3",
+    "title": "Baldur\u0027s Gate 3",
     "genre": [
       "RPG",
       "Estrategia",
       "Por turnos"
     ],
     "price": 59.99,
-    "image": "https://www.psu.com/wp/wp-content/uploads/2023/08/Baldurs-Gate-3-PS5-Wallpapers-01.jpg"
+    "image": "https://www.psu.com/wp/wp-content/uploads/2023/08/Baldurs-Gate-3-PS5-Wallpapers-01.jpg",
+    "trailer": "https://www.youtube.com/watch?v=1T22wNlUiNh"
   },
   {
     "id": 12,
@@ -123,7 +134,8 @@
       "Aventura"
     ],
     "price": 59.99,
-    "image": "https://cdn-hogwartslegacy.warnerbrosgames.com/community/slide-07.jpg"
+    "image": "https://cdn-hogwartslegacy.warnerbrosgames.com/community/slide-07.jpg",
+    "trailer": "https://www.youtube.com/watch?v=1O6QstnCpnc"
   },
   {
     "id": 13,
@@ -133,18 +145,20 @@
       "Acción"
     ],
     "price": 59.99,
-    "image": "https://images.alphacoders.com/130/1308576.jpeg"
+    "image": "https://images.alphacoders.com/130/1308576.jpeg",
+    "trailer": "https://www.youtube.com/watch?v=j5Ic2z3HDeM"
   },
   {
     "id": 14,
-    "title": "Marvel's Spider-Man Remastered",
+    "title": "Marvel\u0027s Spider-Man Remastered",
     "genre": [
       "Acción",
       "Aventura",
       "Mundo Abierto"
     ],
     "price": 59.99,
-    "image": "https://wallpaperaccess.com/full/665366.jpg"
+    "image": "https://wallpaperaccess.com/full/665366.jpg",
+    "trailer": "https://www.youtube.com/watch?v=mrnSmnB_eNE"
   },
   {
     "id": 15,
@@ -155,7 +169,8 @@
       "Fantasía Oscura"
     ],
     "price": 59.99,
-    "image": "https://gaming-cdn.com/images/products/2060/orig-fallback-v1/dark-souls-3-deluxe-edition-deluxe-edition-pc-game-steam-cover.jpg?v=1703156659"
+    "image": "https://gaming-cdn.com/images/products/2060/orig-fallback-v1/dark-souls-3-deluxe-edition-deluxe-edition-pc-game-steam-cover.jpg?v=1703156659",
+    "trailer": "https://www.youtube.com/watch?v=_zDZYrP8g60"
   },
   {
     "id": 16,
@@ -165,7 +180,8 @@
       "Aventura"
     ],
     "price": 59.99,
-    "image": "https://wallpapercg.com/download/sekiro-shadows-die-twice-4k-wallpaper--19904.jpg"
+    "image": "https://wallpapercg.com/download/sekiro-shadows-die-twice-4k-wallpaper--19904.jpg",
+    "trailer": "https://www.youtube.com/watch?v=rXMX4YJwfL4"
   },
   {
     "id": 17,
@@ -176,7 +192,8 @@
       "Simulación"
     ],
     "price": 59.99,
-    "image": "https://wallpaperaccess.com/full/7485384.jpg"
+    "image": "https://wallpaperaccess.com/full/7485384.jpg",
+    "trailer": "https://www.youtube.com/watch?v=FYH9n37B7Yw"
   },
   {
     "id": 18,
@@ -186,18 +203,20 @@
       "Acción"
     ],
     "price": 39.99,
-    "image": "https://images.ctfassets.net/w5r1fvmogo3f/1QF5Wv4EmSd0oDQAu7q02f/d21f31762ea3f4a44b12759e8c750ea3/925fda13f30c49e0ae780d8e8430062b.jpg?fm=webp&q=90&fit=scale&w=1920"
+    "image": "https://images.ctfassets.net/w5r1fvmogo3f/1QF5Wv4EmSd0oDQAu7q02f/d21f31762ea3f4a44b12759e8c750ea3/925fda13f30c49e0ae780d8e8430062b.jpg?fm=webp\u0026q=90\u0026fit=scale\u0026w=1920",
+    "trailer": "https://www.youtube.com/watch?v=FkklG9MA0vM"
   },
   {
     "id": 19,
-    "title": "Ghost of Tsushima Director's Cut",
+    "title": "Ghost of Tsushima Director\u0027s Cut",
     "genre": [
       "Mundo Abierto",
       "Acción",
       "Aventura"
     ],
     "price": 59.99,
-    "image": "https://wallpapercave.com/wp/wp14014194.jpg"
+    "image": "https://wallpapercave.com/wp/wp14014194.jpg",
+    "trailer": "https://www.youtube.com/watch?v=A5g2eGqW16Y"
   },
   {
     "id": 20,
@@ -208,7 +227,8 @@
       "Mundo Abierto"
     ],
     "price": 49.99,
-    "image": "https://www.10wallpaper.com/wallpaper/2560x1600/1512/Horizon_Zero_Dawn-PC_Game_HD_Wallpaper_2560x1600.jpg"
+    "image": "https://www.10wallpaper.com/wallpaper/2560x1600/1512/Horizon_Zero_Dawn-PC_Game_HD_Wallpaper_2560x1600.jpg",
+    "trailer": "https://www.youtube.com/watch?v=u4-FCsiF5x4"
   },
   {
     "id": 21,
@@ -219,7 +239,8 @@
       "Indie"
     ],
     "price": 19.99,
-    "image": "https://images6.alphacoders.com/860/860735.jpg"
+    "image": "https://images6.alphacoders.com/860/860735.jpg",
+    "trailer": "https://www.youtube.com/watch?v=NN-9SQXoi50"
   },
   {
     "id": 22,
@@ -230,7 +251,8 @@
       "Metroidvania"
     ],
     "price": 24.99,
-    "image": "https://wallpapercave.com/wp/wp3589145.jpg"
+    "image": "https://wallpapercave.com/wp/wp3589145.jpg",
+    "trailer": "https://www.youtube.com/watch?v=RvGaSPtcTxc"
   },
   {
     "id": 23,
@@ -241,7 +263,8 @@
       "Indie"
     ],
     "price": 24.99,
-    "image": "https://wallpapercat.com/w/full/5/4/d/85282-2560x1440-desktop-hd-hades-game-wallpaper-image.jpg"
+    "image": "https://wallpapercat.com/w/full/5/4/d/85282-2560x1440-desktop-hd-hades-game-wallpaper-image.jpg",
+    "trailer": "https://www.youtube.com/watch?v=mD8x5xLHRho"
   },
   {
     "id": 24,
@@ -251,7 +274,8 @@
       "Indie"
     ],
     "price": 19.99,
-    "image": "https://images7.alphacoders.com/901/901149.png"
+    "image": "https://images7.alphacoders.com/901/901149.png",
+    "trailer": "https://www.youtube.com/watch?v=70d9irlL-44"
   },
   {
     "id": 25,
@@ -262,7 +286,8 @@
       "Primera Persona"
     ],
     "price": 9.99,
-    "image": "https://wallpapercave.com/wp/xu79pcx.png"
+    "image": "https://wallpapercave.com/wp/xu79pcx.png",
+    "trailer": "https://www.youtube.com/watch?v=tax4gWStPms"
   },
   {
     "id": 26,
@@ -273,7 +298,8 @@
       "Ciencia Ficción"
     ],
     "price": 59.99,
-    "image": "https://static.wikia.nocookie.net/steam/images/e/e9/Alyx.jpg/revision/latest?cb=20200311140131"
+    "image": "https://static.wikia.nocookie.net/steam/images/e/e9/Alyx.jpg/revision/latest?cb=20200311140131",
+    "trailer": "https://www.youtube.com/watch?v=O2W0N3uKXmo"
   },
   {
     "id": 27,
@@ -284,7 +310,8 @@
       "Multijugador"
     ],
     "price": 0.0,
-    "image": "https://images.wallpapersden.com/image/download/apex-legends-4k-gaming-poster_bWlmbG6UmZqaraWkpJRobWllrWdma2U.jpg"
+    "image": "https://images.wallpapersden.com/image/download/apex-legends-4k-gaming-poster_bWlmbG6UmZqaraWkpJRobWllrWdma2U.jpg",
+    "trailer": "https://www.youtube.com/watch?v=oQtHENM_GZU"
   },
   {
     "id": 28,
@@ -295,7 +322,8 @@
       "Competitivo"
     ],
     "price": 0.0,
-    "image": "https://images8.alphacoders.com/132/1329760.jpeg"
+    "image": "https://images8.alphacoders.com/132/1329760.jpeg",
+    "trailer": "https://www.youtube.com/watch?v=nSE38xjMLqE"
   },
   {
     "id": 29,
@@ -306,7 +334,8 @@
       "Multijugador"
     ],
     "price": 0.0,
-    "image": "https://m.media-amazon.com/images/I/81HS4reQ7jL.png"
+    "image": "https://m.media-amazon.com/images/I/81HS4reQ7jL.png",
+    "trailer": "https://www.youtube.com/watch?v=-cSFPIwMEq4"
   },
   {
     "id": 31,
@@ -317,7 +346,8 @@
       "Postapocalíptico"
     ],
     "price": 9.99,
-    "image": "https://cubiccreativity.wordpress.com/wp-content/uploads/2021/09/fallout-new-vegas-header.jpg"
+    "image": "https://cubiccreativity.wordpress.com/wp-content/uploads/2021/09/fallout-new-vegas-header.jpg",
+    "trailer": "https://www.youtube.com/watch?v=v7xME08850k"
   },
   {
     "id": 32,
@@ -328,7 +358,8 @@
       "Aventura"
     ],
     "price": 9.99,
-    "image": "https://wallpapers.com/images/featured/terraria-9jnp0hmkf1tqc0l2.jpg"
+    "image": "https://wallpapers.com/images/featured/terraria-9jnp0hmkf1tqc0l2.jpg",
+    "trailer": "https://www.youtube.com/watch?v=w7uOhFTrrq0"
   },
   {
     "id": 33,
@@ -339,7 +370,8 @@
       "Indie"
     ],
     "price": 14.99,
-    "image": "https://wallpapercave.com/wp/wp15040099.webp"
+    "image": "https://wallpapercave.com/wp/wp15040099.webp",
+    "trailer": "https://www.youtube.com/watch?v=ot7uXNQskdU"
   },
   {
     "id": 34,
@@ -350,7 +382,8 @@
       "Multijugador"
     ],
     "price": 29.99,
-    "image": "https://images2.alphacoders.com/881/881826.png"
+    "image": "https://images2.alphacoders.com/881/881826.png",
+    "trailer": "https://www.youtube.com/watch?v=Ro6r15wzp2o"
   },
   {
     "id": 35,
@@ -360,7 +393,8 @@
       "Acción"
     ],
     "price": 29.99,
-    "image": "https://wallpapers.com/images/featured/devil-may-cry-5-w422eq37u74ho9tm.jpg"
+    "image": "https://wallpapers.com/images/featured/devil-may-cry-5-w422eq37u74ho9tm.jpg",
+    "trailer": "https://www.youtube.com/watch?v=K9L46rznV9s"
   },
   {
     "id": 36,
@@ -371,7 +405,8 @@
       "Exploración"
     ],
     "price": 29.99,
-    "image": "https://gameluster.com/wp-content/uploads/2020/08/Screenshotter-YouTube-SubnauticaSubnauticaBelowZeroNintendoSwitchAnnounce-0%E2%80%9936%E2%80%9D.jpg"
+    "image": "https://gameluster.com/wp-content/uploads/2020/08/Screenshotter-YouTube-SubnauticaSubnauticaBelowZeroNintendoSwitchAnnounce-0%E2%80%9936%E2%80%9D.jpg",
+    "trailer": "https://www.youtube.com/watch?v=Rz2SNm8VguE"
   },
   {
     "id": 37,
@@ -382,18 +417,20 @@
       "Mundo Abierto"
     ],
     "price": 39.99,
-    "image": "https://images5.alphacoders.com/902/902091.jpg"
+    "image": "https://images5.alphacoders.com/902/902091.jpg",
+    "trailer": "https://www.youtube.com/watch?v=r5JIBaasuE8"
   },
   {
     "id": 38,
-    "title": "No Man's Sky",
+    "title": "No Man\u0027s Sky",
     "genre": [
       "Supervivencia",
       "Exploración Espacial",
       "Mundo Abierto"
     ],
     "price": 59.99,
-    "image": "https://images.alphacoders.com/725/thumb-1920-725605.png"
+    "image": "https://images.alphacoders.com/725/thumb-1920-725605.png",
+    "trailer": "https://www.youtube.com/watch?v=nL344r2VeDI"
   },
   {
     "id": 39,
@@ -404,7 +441,8 @@
       "Cooperativo"
     ],
     "price": 9.99,
-    "image": "https://cdn.wallpapersafari.com/6/79/6KwDET.png"
+    "image": "https://cdn.wallpapersafari.com/6/79/6KwDET.png",
+    "trailer": "https://www.youtube.com/watch?v=9XIle_crstE"
   },
   {
     "id": 40,
@@ -415,7 +453,8 @@
       "Acción"
     ],
     "price": 49.99,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcH4lqeN5zg2bhVMpg2j9axU-z_hLY90ORaoogjNb2RXT6Fy0PFCaqrY&s=10"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcH4lqeN5zg2bhVMpg2j9axU-z_hLY90ORaoogjNb2RXT6Fy0PFCaqrY\u0026s=10",
+    "trailer": "https://www.youtube.com/watch?v=q6t_n01r8c4"
   },
   {
     "id": 41,
@@ -426,7 +465,8 @@
       "Ciencia Ficción"
     ],
     "price": 39.99,
-    "image": "https://images5.alphacoders.com/133/thumb-1920-1337070.jpeg"
+    "image": "https://images5.alphacoders.com/133/thumb-1920-1337070.jpeg",
+    "trailer": "https://www.youtube.com/watch?v=l_pwnT_R3Qc"
   },
   {
     "id": 42,
@@ -437,7 +477,8 @@
       "Acción"
     ],
     "price": 59.99,
-    "image": "https://www.rpgfan.com/wp-content/uploads/2024/06/Black-Myth-Wukong-Artwork-001.webp"
+    "image": "https://www.rpgfan.com/wp-content/uploads/2024/06/Black-Myth-Wukong-Artwork-001.webp",
+    "trailer": "https://www.youtube.com/watch?v=igP2qD5v52M"
   },
   {
     "id": 43,
@@ -448,7 +489,8 @@
       "Crafteo"
     ],
     "price": 29.99,
-    "image": "https://i.ytimg.com/vi/AFqPJ_x1KjE/maxresdefault.jpg"
+    "image": "https://i.ytimg.com/vi/AFqPJ_x1KjE/maxresdefault.jpg",
+    "trailer": "https://www.youtube.com/watch?v=jWbXm_L_oI8"
   },
   {
     "id": 44,
@@ -459,7 +501,8 @@
       "Fantasía Oscura"
     ],
     "price": 59.99,
-    "image": "https://images.wallpapersden.com/image/download/lies-of-p-gaming-poster_bmVsa2eUmZqaraWkpJRnamtlrWZpaWU.jpg"
+    "image": "https://images.wallpapersden.com/image/download/lies-of-p-gaming-poster_bmVsa2eUmZqaraWkpJRnamtlrWZpaWU.jpg",
+    "trailer": "https://www.youtube.com/watch?v=473V35Y7H9g"
   },
   {
     "id": 45,
@@ -470,7 +513,8 @@
       "Ciencia Ficción"
     ],
     "price": 59.99,
-    "image": "https://wallpaperaccess.com/full/10483069.jpg"
+    "image": "https://wallpaperaccess.com/full/10483069.jpg",
+    "trailer": "https://www.youtube.com/watch?v=BLH3yqGqEaY"
   },
   {
     "id": 46,
@@ -481,7 +525,8 @@
       "Mundo Abierto"
     ],
     "price": 69.99,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGy08RN_6l4lS-OYIVEEIzJFAuSgo2Uhv-AujvBVeOHp5DJmJTAH9YqDM&s=10"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGy08RN_6l4lS-OYIVEEIzJFAuSgo2Uhv-AujvBVeOHp5DJmJTAH9YqDM\u0026s=10",
+    "trailer": "https://www.youtube.com/watch?v=pYqyVpCV-3c"
   },
   {
     "id": 47,
@@ -492,7 +537,8 @@
       "Crafteo"
     ],
     "price": 39.99,
-    "image": "https://images.squarespace-cdn.com/content/v1/5c95f8d416b640656eb7765a/1573798478768-3NU7QFYW5ELTLAC64QVH/1080p+Artwork.png?format=2500w"
+    "image": "https://images.squarespace-cdn.com/content/v1/5c95f8d416b640656eb7765a/1573798478768-3NU7QFYW5ELTLAC64QVH/1080p+Artwork.png?format=2500w",
+    "trailer": "https://www.youtube.com/watch?v=LGcECozNXEw"
   },
   {
     "id": 48,
@@ -503,7 +549,8 @@
       "Crafteo"
     ],
     "price": 19.99,
-    "image": "https://images5.alphacoders.com/889/889405.jpg"
+    "image": "https://images5.alphacoders.com/889/889405.jpg",
+    "trailer": "https://www.youtube.com/watch?v=4qTtVMM3uqQ"
   },
   {
     "id": 49,
@@ -514,7 +561,8 @@
       "Cooperativo"
     ],
     "price": 29.99,
-    "image": "https://media.vandal.net/m/2-2023/202322815345271_1.jpg"
+    "image": "https://media.vandal.net/m/2-2023/202322815345271_1.jpg",
+    "trailer": "https://www.youtube.com/watch?v=Vea_Z_qXg44"
   },
   {
     "id": 50,
@@ -525,7 +573,8 @@
       "Supervivencia"
     ],
     "price": 9.99,
-    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/header.jpg"
+    "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/header.jpg",
+    "trailer": "https://www.youtube.com/watch?v=wXWz9JzFp80"
   },
   {
     "id": 51,
@@ -536,7 +585,8 @@
       "VR"
     ],
     "price": 13.99,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrRngXxoNsX4PsJPD5B0OuCecKV1Lmk0o91caQDgiBVD7ifhTAf-w8DEdx&s=10"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrRngXxoNsX4PsJPD5B0OuCecKV1Lmk0o91caQDgiBVD7ifhTAf-w8DEdx\u0026s=10",
+    "trailer": "https://www.youtube.com/watch?v=sQuhAft8sCg"
   },
   {
     "id": 52,
@@ -547,7 +597,8 @@
       "Zombis"
     ],
     "price": 19.99,
-    "image": "https://wallpapers.com/images/hd/project-zomboid-survivor-defense-ovf8c3rg4oz1p51x.jpg"
+    "image": "https://wallpapers.com/images/hd/project-zomboid-survivor-defense-ovf8c3rg4oz1p51x.jpg",
+    "trailer": "https://www.youtube.com/watch?v=nPv1_l9kXis"
   },
   {
     "id": 53,
@@ -558,7 +609,8 @@
       "Acción"
     ],
     "price": 29.99,
-    "image": "https://images.steamusercontent.com/ugc/5090788033229140426/840DFFE8246D5E50105CE7B48381683BA94D08A0/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+    "image": "https://images.steamusercontent.com/ugc/5090788033229140426/840DFFE8246D5E50105CE7B48381683BA94D08A0/?imw=5000\u0026imh=5000\u0026ima=fit\u0026impolicy=Letterbox\u0026imcolor=%23000000\u0026letterbox=false",
+    "trailer": "https://www.youtube.com/watch?v=2r1oW9m6jL8"
   },
   {
     "id": 54,
@@ -569,7 +621,8 @@
       "Cooperativo"
     ],
     "price": 9.99,
-    "image": "https://assetsio.gnwcdn.com/arcue.jpg?width=2048&height=2048&fit=bounds&quality=85&format=jpg&auto=webp"
+    "image": "https://assetsio.gnwcdn.com/arcue.jpg?width=2048\u0026height=2048\u0026fit=bounds\u0026quality=85\u0026format=jpg\u0026auto=webp",
+    "trailer": "https://www.youtube.com/watch?v=Gb-_DKC6r4o"
   },
   {
     "id": 55,
@@ -580,7 +633,8 @@
       "Competitivo"
     ],
     "price": 59.99,
-    "image": "https://i0.wp.com/gamingrespawn.com/wp-content/uploads/2023/06/street-fighter-6-3274820019.jpg?fit=1920%2C1080&ssl=1"
+    "image": "https://i0.wp.com/gamingrespawn.com/wp-content/uploads/2023/06/street-fighter-6-3274820019.jpg?fit=1920%2C1080\u0026ssl=1",
+    "trailer": "https://www.youtube.com/watch?v=1INU3FL79-w"
   },
   {
     "id": 56,
@@ -591,7 +645,8 @@
       "Competitivo"
     ],
     "price": 69.99,
-    "image": "https://gmedia.playstation.com/is/image/SIEPDC/tekken-8-keyart-01-en-15may23?$native$"
+    "image": "https://gmedia.playstation.com/is/image/SIEPDC/tekken-8-keyart-01-en-15may23?$native$",
+    "trailer": "https://www.youtube.com/watch?v=2hPuRQz6IlM"
   },
   {
     "id": 57,
@@ -601,7 +656,8 @@
       "Aventura"
     ],
     "price": 39.99,
-    "image": "https://cdn1.epicgames.com/salesEvent/salesEvent/1bbe911a-6c89-490c-9230-cdd99c3be4b5_2560x1440-1c47786e1130e040a090368a1551a627"
+    "image": "https://cdn1.epicgames.com/salesEvent/salesEvent/1bbe911a-6c89-490c-9230-cdd99c3be4b5_2560x1440-1c47786e1130e040a090368a1551a627",
+    "trailer": "https://www.youtube.com/watch?v=4yI8R5fV0c0"
   },
   {
     "id": 58,
@@ -612,7 +668,8 @@
       "Ciencia Ficción"
     ],
     "price": 39.99,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cJgnNuRO5qZEzR7MOWAJ8CBnRaKHTEhmP1idqmiu3cokuIaAKKRCYMs&s=10"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cJgnNuRO5qZEzR7MOWAJ8CBnRaKHTEhmP1idqmiu3cokuIaAKKRCYMs\u0026s=10",
+    "trailer": "https://www.youtube.com/watch?v=wJxNhJ8fiFk"
   },
   {
     "id": 59,
@@ -623,7 +680,8 @@
       "Anime"
     ],
     "price": 59.99,
-    "image": "https://images.steamusercontent.com/ugc/2019355369832417157/0589A1EE3E6E97247D21B72A5DBB8E25ECAC171F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+    "image": "https://images.steamusercontent.com/ugc/2019355369832417157/0589A1EE3E6E97247D21B72A5DBB8E25ECAC171F/?imw=5000\u0026imh=5000\u0026ima=fit\u0026impolicy=Letterbox\u0026imcolor=%23000000\u0026letterbox=false",
+    "trailer": "https://www.youtube.com/watch?v=SKpSpvNmQCU"
   },
   {
     "id": 60,
@@ -634,6 +692,7 @@
       "Aventura"
     ],
     "price": 69.99,
-    "image": "https://gh.cdn.sewest.net/assets/ident/pulse/a218ace0/FFVIIRINTERGRADE_Available_Now-1vq9ttoa5.jpg?quality=65"
+    "image": "https://gh.cdn.sewest.net/assets/ident/pulse/a218ace0/FFVIIRINTERGRADE_Available_Now-1vq9ttoa5.jpg?quality=65",
+    "trailer": "https://www.youtube.com/watch?v=cM3k0l_mJqY"
   }
 ]

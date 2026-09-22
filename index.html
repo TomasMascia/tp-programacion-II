@@ -8,6 +8,10 @@
     <!--Iconos-->
     <link rel="icon" href="./assets/images/icono.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!--Fuente Montserrat-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <!--Estilos de la pagina-->
     <link rel="stylesheet" href="./css/styles.css">
     <script>
@@ -17,69 +21,65 @@
     </script>
 </head>
 
-<body class="main-home">
+<body class="pagina-inicio">
 
     <!-- HEADER -->
-    <header class="header_site">
-        <a href="./index.html" class="link_header_site">
-            <img src="./assets/images/icono.png" alt="Logo GamesShop" class="img_header_site">
+    <header class="encabezado">
+        <a href="./index.html" class="logo-sitio">
+            <img src="./assets/images/icono.png" alt="Logo GamesShop" class="logo-imagen">
         </a>
 
-        <nav class="nav_header_site">
-            <ul class="ul_header_site">
-                <li><a class="li_header_site" href="./index.html">Inicio</a></li>
-                <li><a class="li_header_site" href="./pages/catalogo.html">Catálogo</a></li>
-                <li><a class="li_header_site" href="./pages/carrito.html">Carrito</a></li>
-                <li><a class="li_header_site" href="./pages/lista-deseos.html">Lista de deseos</a></li>
-                <li><a class="li_header_site" href="./pages/perfil.html">Perfil</a></li>
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li><a class="enlace-menu" href="./index.html">Inicio</a></li>
+                <li><a class="enlace-menu" href="./pages/catalogo.html">Catálogo</a></li>
+                <li><a class="enlace-menu" href="./pages/carrito.html">Carrito</a></li>
+                <li><a class="enlace-menu" href="./pages/lista-deseados.html">Lista de deseos</a></li>
             </ul>
         </nav>
 
-        <div class="div_header_site">
-            <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
-                <i class="fa-solid fa-moon"></i>
+        <div class="acciones-encabezado">
+            <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche"
+                title="Cambiar a Modo Día / Modo Noche">
+                <i class="fa-solid fa-moon" id="icono-tema"></i>
             </button>
-            <button type="button" id="theme-page-movil" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
-                <i class="fa-solid fa-moon"></i>
+            <button type="button" id="boton-tema-movil" aria-label="Cambiar modo Día/Noche"
+                title="Cambiar a Modo Día / Modo Noche">
+                <h4>menu</h4>
             </button>
         </div>
     </header>
 
+    <!-- MAIN -->
     <main>
-        <section class="hero-banner">
-            <div class="hero-banner-content">
-                <h1 class="novedades-titulo">Elige tu próximo juego favorito</h1>
-                <p class="hero-banner-subtitle">Explora muchos títulos y lanzamientos recientes</p>
-                <div class="hero-banner-actions">
-                    <a href="./pages/catalogo.html" class="hero-btn-primary">Explorar catálogo</a>
+        <section class="banner-inicio">
+            <div class="contenido-banner">
+                <h2 class="titulo-banner">Conoce nuestro catalogo de juegos</h2>
+                <p class="subtitulo-banner">Compra siempre con nosotros</p>
+                <div class="acciones-banner">
+                    <a href="./pages/catalogo.html" class="boton-banner">Ir al Catálogo</a>
                 </div>
             </div>
         </section>
-
-        <section id="novedades">
-            <div class="section-header">
-                <div>
-                    <h2 class="novedades-titulo">Novedades</h2>
-                    <h3 class="novedades-titulo">Juegos más comprados</h3>
-                </div>
-                <div class="header-acciones">
-                    <div class="controles-carrusel">
-                        <button id="btn-prev" class="btn-carrusel">&#10094;</button>
-                        <button id="btn-next" class="btn-carrusel">&#10095;</button>
-                    </div>
-                    <a class="ver-catalogo-link" href="./pages/catalogo.html">Ver catálogo completo</a>
-                </div>
+        <!-- carrusel -->
+        <section id="carrusel-principal" class="seccion-carrusel-completo">
+            <div class="carrusel-items" id="carrusel-items-inicio">
             </div>
 
-            <div class="carousel-wrapper">
-                <div id="games-container" class="games-grid"></div>
-            </div>
+            <button type="button" class="btn-carrusel btn-anterior" id="btn-anterior-inicio" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button type="button" class="btn-carrusel btn-siguiente" id="btn-siguiente-inicio" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </section>
+
+
     </main>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; GamesShop - Trabajo Práctico Programación II</p>
+        <p>Programacion II - Trabajo Practico</p>
     </footer>
 
     <script src="./js/app.js"></script>

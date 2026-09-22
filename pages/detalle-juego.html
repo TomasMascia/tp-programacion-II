@@ -1,51 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name of game</title>
+    <title>Detalle del Juego - GamesShop</title>
+
+    <!-- ICONOS -->
+    <link rel="icon" href="../assets/images/icono.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- FUENTE MONTSERRAT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        // Carga inmediata del tema guardado antes de que renderice la página
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
 </head>
 
 <body>
-    <header class="header_site">
+    <!-- HEADER -->
+    <header class="encabezado">
         <!--Logo de la pagina con boton para volver al inicio-->
-        <a class="link_header_site" href="./index.html">
-            <img class="img_header_site" src="../assets/images/icono.png" alt="Icono de la pagina">
+        <a class="logo-sitio" href="../index.html">
+            <img class="logo-imagen" src="../assets/images/icono.png" alt="Icono de la pagina">
         </a>
 
         <!--Menu de navegacion para ir a las otras paginas que la componen-->
-        <nav class="nav_header_site">
-            <ul class="ul_header_site">
-                <li><a class="li_header_site" href="../index.html">Inicio</a></li>
-                <li><a class="li_header_site" href="./catalogo.html">Catálogo</a></li>
-                <li><a class="li_header_site" href="./carrito.html">Carrito</a></li>
-                <li><a class="li_header_site" href="./lista-deseados.html">Lista de deseados</a></li>
-                <li><a class="li_header_site" href="./perfil.html">Perfil</a></li>
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li><a class="enlace-menu" href="../index.html">Inicio</a></li>
+                <li><a class="enlace-menu" href="./catalogo.html">Catálogo</a></li>
+                <li><a class="enlace-menu" href="./carrito.html">Carrito</a></li>
+                <li><a class="enlace-menu" href="./lista-deseados.html">Lista de deseados</a></li>
             </ul>
         </nav>
+
         <!--Botones para cambiar de tema en computadora y movil-->
-        <div>
+        <div class="acciones-encabezado">
             <!--computadora-->
-            <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche"
+            <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche"
                 title="Cambiar a Modo Día / Modo Noche">
-                <h4>theme</h4>
+                <i class="fa-solid fa-moon" id="icono-tema"></i>
             </button>
 
             <!--movil-->
-            <button type="button" id="theme-page-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
+            <button type="button" id="boton-tema-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
                 <h4>menu</h4>
             </button>
         </div>
     </header>
+
     <main>
-        <section id="background-game-image">
+        <section id="fondo-juego">
+            <div class="info-juego">
+                <div class="datos-juego">
+                    <h1 id="titulo-juego">Cargando juego...</h1>
+                    <div class="generos-tarjeta" id="generos-juego"></div>
+                    <p class="precio-juego" id="precio-juego"></p>
+                    <div class="botones-detalle">
+                        <button type="button" class="btn-comprar">
+                            <i class="fa-solid fa-cart-plus"></i> Comprar
+                        </button>
+                        <button type="button" class="btn-deseados" aria-label="Añadir a lista de deseados">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="contenedor-portada">
+                    <div class="carrusel-juego">
+                        <div class="carrusel-items">
+                            <!-- Portada -->
+                            <div class="item-carrusel activo">
+                                <img id="imagen-portada-juego" alt="Portada del juego">
+                            </div>
+
+                            <!-- Trailer YouTube -->
+                            <div class="item-carrusel">
+                                <iframe id="video-trailer-juego" src="" title="Trailer del juego" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-carrusel btn-anterior" id="btn-anterior-carrusel"
+                            aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button" class="btn-carrusel btn-siguiente" id="btn-siguiente-carrusel"
+                            aria-label="Siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
 
+    <footer>
+        <p>Programacion II - Trabajo Práctico</p>
     </footer>
+
+    <!-- SCRIPT -->
+    <script src="../js/app.js"></script>
 </body>
 
 </html>
