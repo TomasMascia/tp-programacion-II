@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Iconos-->
+    <link rel="icon" href="../assets/images/icono.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Lista de deseados</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        // Carga inmediata del tema guardado antes de que renderice la página
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
 </head>
 
 <body>
@@ -27,15 +35,15 @@
                 <li><a class="li_header_site" href="./perfil.html">Perfil</a></li>
             </ul>
         </nav>
-        <!--Botones para cambiar de tema en computadora y movil-->
-        <div>
-            <!--computadora-->
+        <!-- BOTONES DE CONTROL -->
+        <div class="div_header_site">
+            <!-- COMPUTADORA -->
             <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche"
                 title="Cambiar a Modo Día / Modo Noche">
-                <h4>theme</h4>
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
             </button>
 
-            <!--movil-->
+            <!-- MOVIL -->
             <button type="button" id="theme-page-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
                 <h4>menu</h4>
             </button>
@@ -49,6 +57,7 @@
     <footer>
         <p>footer</p>
     </footer>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

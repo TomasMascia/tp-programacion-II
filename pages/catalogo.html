@@ -7,10 +7,16 @@
     <title>Catálogo de Videojuegos - GamesShop</title>
 
     <!-- ICONOS -->
+     <link rel="icon" href="../assets/images/icono.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        // Carga inmediata del tema guardado antes de que renderice la página
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
 </head>
 
 <body>
@@ -26,7 +32,7 @@
             <ul class="ul_header_site">
                 <li><a class="li_header_site" href="../index.html">Inicio</a></li>
                 <li><a class="li_header_site" href="./catalogo.html">Catálogo</a></li>
-                <li><a class="li_header_site" href="./carrito.html">Carrito</a></li>
+                <li><a class="li_header_site" href="./carrito.html">Carrito <span id="cart-counter">(0)</span></a></li>
                 <li><a class="li_header_site" href="./lista-deseados.html">Lista de deseados</a></li>
                 <li><a class="li_header_site" href="./perfil.html">Perfil</a></li>
             </ul>

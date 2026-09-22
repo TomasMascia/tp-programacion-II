@@ -2,56 +2,87 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamesShop</title> <!--Titulo principal-->
     <!--Iconos-->
+    <link rel="icon" href="./assets/images/icono.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!--Estilos de la pagina-->
     <link rel="stylesheet" href="./css/styles.css">
+    <script>
+        // Carga inmediata del tema guardado antes de que renderice la página
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
 </head>
 
-<body>
-    <!--HEADER-->
+<body class="main-home">
+
+    <!-- HEADER -->
     <header class="header_site">
-        <!--Logo de la pagina con boton para volver al inicio-->
-        <a class="link_header_site" href="./index.html">
-            <img class="img_header_site" src="./assets/images/icono.png" alt="Icono de la pagina">
+        <a href="./index.html" class="link_header_site">
+            <img src="./assets/images/icono.png" alt="Logo GamesShop" class="img_header_site">
         </a>
 
-        <!--Menu de navegacion para ir a las otras paginas que la componen-->
         <nav class="nav_header_site">
             <ul class="ul_header_site">
                 <li><a class="li_header_site" href="./index.html">Inicio</a></li>
                 <li><a class="li_header_site" href="./pages/catalogo.html">Catálogo</a></li>
                 <li><a class="li_header_site" href="./pages/carrito.html">Carrito</a></li>
-                <li><a class="li_header_site" href="./pages/lista-deseados.html">Lista de deseados</a></li>
+                <li><a class="li_header_site" href="./pages/lista-deseos.html">Lista de deseos</a></li>
                 <li><a class="li_header_site" href="./pages/perfil.html">Perfil</a></li>
             </ul>
         </nav>
-        <!--Botones para cambiar de tema en computadora y movil-->
-        <div>
-            <!--computadora-->
-            <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche"
-                title="Cambiar a Modo Día / Modo Noche">
-                <h4>theme</h4>
-            </button>
 
-            <!--movil-->
-            <button type="button" id="theme-page-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
-                <h4>menu</h4>
+        <div class="div_header_site">
+            <button type="button" id="theme-page" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button type="button" id="theme-page-movil" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
+                <i class="fa-solid fa-moon"></i>
             </button>
         </div>
     </header>
 
-    <main class=" main-container">
-        <h1>Inicio</h1>
+    <main>
+        <section class="hero-banner">
+            <div class="hero-banner-content">
+                <h1 class="novedades-titulo">Elige tu próximo juego favorito</h1>
+                <p class="hero-banner-subtitle">Explora muchos títulos y lanzamientos recientes</p>
+                <div class="hero-banner-actions">
+                    <a href="./pages/catalogo.html" class="hero-btn-primary">Explorar catálogo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="novedades">
+            <div class="section-header">
+                <div>
+                    <h2 class="novedades-titulo">Novedades</h2>
+                    <h3 class="novedades-titulo">Juegos más comprados</h3>
+                </div>
+                <div class="header-acciones">
+                    <div class="controles-carrusel">
+                        <button id="btn-prev" class="btn-carrusel">&#10094;</button>
+                        <button id="btn-next" class="btn-carrusel">&#10095;</button>
+                    </div>
+                    <a class="ver-catalogo-link" href="./pages/catalogo.html">Ver catálogo completo</a>
+                </div>
+            </div>
+
+            <div class="carousel-wrapper">
+                <div id="games-container" class="games-grid"></div>
+            </div>
+        </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>footer</p>
+        <p>&copy; GamesShop - Trabajo Práctico Programación II</p>
     </footer>
+
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
