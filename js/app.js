@@ -191,10 +191,10 @@ function toggleWishlist(gameId, botonElemento) {
     }
 
     localStorage.setItem("deseados", JSON.stringify(wishlist));
-   // localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    // localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
     const estasEnWIshlist = document.getElementById("contenedor-deseados");
-    if(estasEnWIshlist){
+    if (estasEnWIshlist) {
         MostrarDeseados();
     }
 
@@ -209,7 +209,7 @@ function MostrarDeseados() {
             <a href="catalogoBC.html" class="volver">Aqui puedes seguir buscando!</a>
         </div>
         `;
-    }else{
+    } else {
         const listaJuegos = allGames.filter(game => wishlist.includes(game.id));
         renderCatalog(listaJuegos);
     }
@@ -239,10 +239,10 @@ function showToast(mensaje) {
     contenedor.appendChild(toast);
 
     setTimeout(() => {
-        if(toast.parentNode){
+        if (toast.parentNode) {
             toast.remove();
         }
-        
+
     }, 3500);
 }
 
@@ -541,11 +541,11 @@ function renderThemeIcon(tema) {
     iconos.forEach(icono => {
         if (tema === "dark") {
             icono.className = "fa-solid fa-moon";
-            
-            icono.style.color = "#ffffff"; 
+
+            icono.style.color = "#ffffff";
         } else {
             icono.className = "fa-solid fa-sun";
-            icono.style.color = ""; 
+            icono.style.color = "";
         }
     });
 }
@@ -581,7 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Carga Lista Deseados
-    if(contenedorDeseados){
+    if (contenedorDeseados) {
         contenedorDeseados.addEventListener("click", handleCatalogClicks);
 
         fetchGamesData().then(games => {
@@ -592,23 +592,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//-----------------perfil
+//-----------------perfil-----------------
 document.addEventListener('DOMContentLoaded', () => {
     const authContainer = document.getElementById('auth-container');
     const profileContainer = document.getElementById('profile-container');
     const loginBox = document.getElementById('login-box');
     const registerBox = document.getElementById('register-box');
-    
+
     const showRegisterBtn = document.getElementById('show-register');
     const showLoginBtn = document.getElementById('show-login');
-    
+
     const registerForm = document.getElementById('register-form');
     const loginForm = document.getElementById('login-form');
-    
+
     // Elementos del perfil
     const perfilNickname = document.querySelector('.perfil-nickname');
-    const profileEmail = document.getElementById('profile-email'); 
-    
+    const profileEmail = document.getElementById('profile-email');
+
     const btnLogout = document.getElementById('btn-logout');
 
     // 1. Verificar si hay un usuario logueado al cargar la página
@@ -617,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (usuarioLogueado) {
         if (authContainer) authContainer.style.display = 'none';
         if (profileContainer) profileContainer.style.display = 'flex';
-        
+
         // Rellenar datos en la vista de perfil
         if (perfilNickname) perfilNickname.textContent = usuarioLogueado.nickname;
         if (profileEmail) profileEmail.textContent = usuarioLogueado.email;

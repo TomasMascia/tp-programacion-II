@@ -20,9 +20,9 @@
     --color-encabezado: #ffffff;
     --color-borde: #e4e4e7;
     --color-morado: #7800c9;
-    --color-morado-hover: #530083;
-    --color-morado-claro: rgba(147, 100, 255, 0.459);
-    --color-texto: #7800c9; 
+    --color-morado-hover: #a968cf;
+    --color-morado-claro: rgba(76, 0, 255, 0.459);
+    --color-texto: #7800c9;
     --color-texto-secundario: #7800c9;
 }
 
@@ -51,9 +51,9 @@ body {
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--color-tarjeta); 
-    border-top: 1px solid var(--color-borde);  
-    color: var(--color-texto-secundario);       
+    background-color: var(--color-tarjeta);
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
     font-size: 0.85rem;
     transition: background-color var(--transicion), color var(--transicion);
 }
@@ -195,7 +195,8 @@ body {
     color: var(--color-texto-secundario);
 }
 
-.boton-banner, .volver {
+.boton-banner,
+.volver {
     background-color: var(--color-morado);
     color: #ffffff;
     padding: 12px 24px;
@@ -207,7 +208,8 @@ body {
     transition: background-color var(--transicion);
 }
 
-.boton-banner:hover, .volver:hover {
+.boton-banner:hover,
+.volver:hover {
     background-color: var(--color-morado-hover);
 }
 
@@ -735,24 +737,39 @@ body {
 /* Notificaciones */
 
 @keyframes aparecerNoti {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes desaparecerNoti {
-    0% { opacity: 1; transform: translateY(0); 
+    0% {
+        opacity: 1;
+        transform: translateY(0);
         padding-top: 15px;
         padding-bottom: 15px;
         margin-bottom: 0;
         border-width: 1px;
     }
-    50% { opacity: 0; transform: translateY(-30px); 
+
+    50% {
+        opacity: 0;
+        transform: translateY(-30px);
         padding-top: 15px;
         padding-bottom: 15px;
         margin-bottom: 0;
         border-width: 1px;
     }
-    100% { opacity: 0; transform: translateY(-30px); 
+
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
         padding-top: 0;
         padding-bottom: 0;
         margin-bottom: -10px;
@@ -770,10 +787,10 @@ body {
     gap: 10px;
     align-items: flex-end;
 
-   
+
 }
 
-.notificacion{
+.notificacion {
     animation: aparecerNoti 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, desaparecerNoti 0.4s ease forwards 2.6s;
     overflow: hidden;
     white-space: nowrap;
@@ -782,9 +799,9 @@ body {
 
 /* Lista de deseados */
 
-.listaVacia{
+.listaVacia {
     grid-column: 1 / -1;
-    
+
     width: 100vw;
     margin-left: calc(50% - 50vw);
     min-height: 400px;
@@ -802,7 +819,7 @@ body {
     box-sizing: border-box;
 }
 
-.listaVacia p{
+.listaVacia p {
     color: var(--color-texto);
     font-size: 1.5rem;
     text-align: center;
@@ -829,6 +846,7 @@ body {
     #contenedor-deseados {
         grid-template-columns: 1fr;
     }
+
     #contenedor-deseados .tarjeta-juego:last-child:nth-child(odd) {
         grid-column: auto;
         width: 100%;
@@ -881,7 +899,7 @@ footer {
 }
 
 .div_header_site nav a {
-    color: var(--color-texto); 
+    color: var(--color-texto);
     text-decoration: none;
     font-size: 1rem;
     transition: color var(--transicion);
@@ -901,14 +919,14 @@ footer {
 }
 
 .auth-card {
-    background-color: var(--color-tarjeta); 
+    background-color: var(--color-tarjeta);
     padding: 30px;
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: var(--color-texto);                
-    border: 1px solid var(--color-borde);     
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
     transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
 }
 
@@ -916,7 +934,7 @@ footer {
     margin-bottom: 20px;
     font-size: 1.8rem;
     text-align: center;
-    color: var(--color-texto);                 
+    color: var(--color-texto);
 }
 
 .form-group {
@@ -928,15 +946,15 @@ footer {
 .form-group label {
     margin-bottom: 5px;
     font-size: 0.9rem;
-    color: var(--color-texto-secundario);      
+    color: var(--color-texto-secundario);
 }
 
 .form-group input {
     padding: 10px;
     border-radius: 4px;
-    border: 1px solid var(--color-borde);      
-    background-color: var(--color-fondo);   
-    color: var(--color-texto);                
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
     font-size: 1rem;
     transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
 }
@@ -968,7 +986,7 @@ footer {
     margin-top: 20px;
     text-align: center;
     font-size: 0.9rem;
-    color: var(--color-texto-secundario);     
+    color: var(--color-texto-secundario);
 }
 
 .auth-redirect a {
@@ -988,7 +1006,7 @@ footer {
 
 .password-container input {
     width: 100%;
-    padding-right: 40px; 
+    padding-right: 40px;
 }
 
 .toggle-password {
