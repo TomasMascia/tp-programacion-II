@@ -8,6 +8,7 @@ const gamesContainer = document.getElementById("contenedor-juegos");
 const searchInput = document.getElementById("buscador-juegos");
 const noResults = document.getElementById("sin-resultados");
 const toastContainer = document.getElementById("contenedor-notificaciones");
+const contenedorDeseados = document.getElementById("contenedor-deseados");
 
 // Detalle del juego
 const gameDetailBg = document.getElementById("fondo-juego");
@@ -55,7 +56,7 @@ async function loadCatalog() {
 
 // catálogo
 function renderCatalog(games) {
-    const contenedor = document.getElementById("contenedor-juegos") || gamesContainer;
+    const contenedor = document.getElementById("contenedor-juegos") || gamesContainer || document.getElementById("contenedor-deseados");
     if (!contenedor) return;
 
     contenedor.innerHTML = "";
@@ -190,8 +191,30 @@ function toggleWishlist(gameId, botonElemento) {
     }
 
     localStorage.setItem("deseados", JSON.stringify(wishlist));
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+   // localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    const estasEnWIshlist = document.getElementById("contenedor-deseados");
+    if(estasEnWIshlist){
+        MostrarDeseados();
+    }
+
 }
+
+// Mostrar lista deseados
+function MostrarDeseados() {
+    if (wishlist.length === 0) {
+        contenedorDeseados.innerHTML = `
+        <div class = "listaVacia">
+            <p>¿Aun no encontraste nada que te guste?</p>
+            <a href="catalogoBC.html" class="volver">Aqui puedes seguir buscando!</a>
+        </div>
+        `;
+    }else{
+        const listaJuegos = allGames.filter(game => wishlist.includes(game.id));
+        renderCatalog(listaJuegos);
+    }
+}
+
 
 function updateCartCounter() {
     const contadores = document.querySelectorAll("#contador-carrito");
@@ -216,8 +239,11 @@ function showToast(mensaje) {
     contenedor.appendChild(toast);
 
     setTimeout(() => {
-        toast.remove();
-    }, 3000);
+        if(toast.parentNode){
+            toast.remove();
+        }
+        
+    }, 3500);
 }
 
 // detalle de juego 
@@ -552,6 +578,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Carga de novedades en el inicio
     if (document.getElementById("carrusel-items-inicio") || document.querySelector(".carrusel-juegos")) {
         loadHomeFeatured();
+    }
+
+    // Carga Lista Deseados
+    if(contenedorDeseados){
+        contenedorDeseados.addEventListener("click", handleCatalogClicks);
+
+        fetchGamesData().then(games => {
+            allGames = games;
+            MostrarDeseados();
+        })
     }
 });
 

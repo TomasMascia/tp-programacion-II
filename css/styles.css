@@ -195,7 +195,7 @@ body {
     color: var(--color-texto-secundario);
 }
 
-.boton-banner {
+.boton-banner, .volver {
     background-color: var(--color-morado);
     color: #ffffff;
     padding: 12px 24px;
@@ -207,7 +207,7 @@ body {
     transition: background-color var(--transicion);
 }
 
-.boton-banner:hover {
+.boton-banner:hover, .volver:hover {
     background-color: var(--color-morado-hover);
 }
 
@@ -730,6 +730,113 @@ body {
 .carrusel-juego .btn-siguiente {
     right: 10px;
 }
+
+
+/* Notificaciones */
+
+@keyframes aparecerNoti {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes desaparecerNoti {
+    0% { opacity: 1; transform: translateY(0); 
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 0;
+        border-width: 1px;
+    }
+    50% { opacity: 0; transform: translateY(-30px); 
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 0;
+        border-width: 1px;
+    }
+    100% { opacity: 0; transform: translateY(-30px); 
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: -10px;
+        border-width: 0;
+    }
+}
+
+#contenedor-notificaciones {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+
+   
+}
+
+.notificacion{
+    animation: aparecerNoti 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, desaparecerNoti 0.4s ease forwards 2.6s;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* Lista de deseados */
+
+.listaVacia{
+    grid-column: 1 / -1;
+    
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgTP/otroFondo.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.listaVacia p{
+    color: var(--color-texto);
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+#contenedor-deseados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+#contenedor-deseados .tarjeta-juego:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 10px);
+}
+
+@media (max-width: 768px) {
+    #contenedor-deseados {
+        grid-template-columns: 1fr;
+    }
+    #contenedor-deseados .tarjeta-juego:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+
+
+
 
 /* footer */
 footer {
