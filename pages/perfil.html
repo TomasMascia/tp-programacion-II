@@ -1,0 +1,123 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="icon" href="../assets/images/icono.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Fuente Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+</head>
+<body>
+    <header class="encabezado">
+        <!-- Logo de la pagina con boton para volver al inicio -->
+        <a class="logo-sitio" href="../index.html">
+            <img class="logo-imagen" src="../assets/images/icono.png" alt="Icono de la pagina">
+        </a>
+
+        <!-- Menu de navegacion para ir a las otras paginas -->
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li><a class="enlace-menu" href="../index.html">Inicio</a></li>
+                <li><a class="enlace-menu" href="./catalogo.html">Catálogo</a></li>
+                <li><a class="enlace-menu" href="./carrito.html">Carrito</a></li>
+                <li><a class="enlace-menu" href="./lista-deseados.html">Lista de deseados</a></li>
+                <li><a class="enlace-menu" href="./perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+        
+        <!-- BOTONES DE CONTROL -->
+        <div class="acciones-encabezado">
+            <!-- COMPUTADORA -->
+            <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
+                <i class="fa-solid fa-moon" id="icono-tema"></i>
+            </button>
+
+            <!-- MOVIL -->
+            <button type="button" id="boton-tema-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
+                <h4>menu</h4>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- VISTA 1: Se muestra si NO hay sesión iniciada -->
+        <section id="auth-container" class="auth-section">
+            <div class="auth-card">
+                <!-- Formulario de Login -->
+                <div id="login-box">
+                    <h1>Iniciar Sesión</h1>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Correo electrónico</label>
+                            <input type="email" id="login-email" required placeholder="tu_correo@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <div class="password-container">
+                                <input type="password" id="login-password" required placeholder="••••••••">
+                                <button type="button" class="toggle-password" data-target="login-password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Entrar</button>
+                    </form>
+                    <p class="auth-redirect">
+                        ¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a>
+                    </p>
+                </div>
+
+                <!-- Formulario de Registro (Oculto por defecto) -->
+                <div id="register-box" style="display: none;">
+                    <h1>Crear Cuenta</h1>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="reg-nickname">Nombre de usuario</label>
+                            <input type="text" id="reg-nickname" required placeholder="TuApodo">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Correo electrónico</label>
+                            <input type="email" id="reg-email" required placeholder="tu_correo@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Contraseña</label>
+                            <div class="password-container">
+                                <input type="password" id="reg-password" required placeholder="••••••••">
+                                <button type="button" class="toggle-password" data-target="reg-password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrarse</button>
+                    </form>
+                    <p class="auth-redirect">
+                        ¿Ya tienes una cuenta? <a href="#" id="show-login">Inicia sesión</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 2: Se muestra SI hay sesión iniciada -->
+        <section id="profile-container" class="auth-section" style="display: none;">
+            <div class="auth-card" style="text-align: center;">
+                <h1 class="perfil-nickname" style="margin-bottom: 20px;">Nombre de usuario</h1>
+                <button id="btn-logout" class="btn-primary" style="background-color: #e74c3c;">Cerrar Sesión</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Programacion II - Trabajo Practico</p>
+    </footer>
+    <script src="../js/app.js"></script>
+</body>
+</html>

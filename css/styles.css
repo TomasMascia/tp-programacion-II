@@ -22,7 +22,7 @@
     --color-morado: #7800c9;
     --color-morado-hover: #530083;
     --color-morado-claro: rgba(147, 100, 255, 0.459);
-    --color-texto: #fcfcfc;
+    --color-texto: #7800c9; 
     --color-texto-secundario: #7800c9;
 }
 
@@ -46,6 +46,16 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     min-height: 100vh;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-tarjeta); 
+    border-top: 1px solid var(--color-borde);  
+    color: var(--color-texto-secundario);       
+    font-size: 0.85rem;
+    transition: background-color var(--transicion), color var(--transicion);
 }
 
 .oculto {
@@ -543,11 +553,10 @@ body {
 
 .etiqueta {
     background-color: var(--color-morado-claro);
-    color: var(--color-morado);
+    color: #f1f1f3;
     border: 1px solid var(--color-morado);
     font-size: 13px;
     padding: 3px 8px;
-
 }
 
 .precio-tarjeta {
@@ -731,4 +740,161 @@ footer {
     background-color: var(--color-encabezado);
     color: var(--color-texto-secundario);
     font-size: 14px;
+}
+
+
+
+/* ------- perfil ------- */
+
+.header_site {
+    background-color: var(--color-tarjeta);
+    width: 100%;
+    border-bottom: 1px solid var(--color-borde);
+    transition: background-color var(--transicion), border-color var(--transicion);
+}
+
+.div_header_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    width: 100%;
+}
+
+.logo-img {
+    width: 45px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.div_header_site nav {
+    display: flex;
+    gap: 30px;
+}
+
+.div_header_site nav a {
+    color: var(--color-texto); 
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color var(--transicion);
+}
+
+.div_header_site nav a:hover {
+    color: var(--color-morado);
+}
+
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: calc(100vh - 140px);
+    flex: 1;
+}
+
+.auth-card {
+    background-color: var(--color-tarjeta); 
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: var(--color-texto);                
+    border: 1px solid var(--color-borde);     
+    transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+
+.auth-card h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--color-texto);                 
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);      
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-borde);      
+    background-color: var(--color-fondo);   
+    color: var(--color-texto);                
+    font-size: 1rem;
+    transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-morado);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-morado);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color var(--transicion);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-morado-hover);
+}
+
+.auth-redirect {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);     
+}
+
+.auth-redirect a {
+    color: var(--color-morado);
+    text-decoration: none;
+}
+
+.auth-redirect a:hover {
+    text-decoration: underline;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--color-texto-secundario);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: var(--color-morado);
 }

@@ -503,7 +503,7 @@ function initTheme() {
 }
 
 function toggleTheme() {
-    const actual = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+    const actual = document.documentElement.getAttribute("data-theme") || "dark";
     const siguiente = actual === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", siguiente);
     localStorage.setItem("theme", siguiente);
@@ -513,7 +513,14 @@ function toggleTheme() {
 function renderThemeIcon(tema) {
     const iconos = document.querySelectorAll("#icono-tema, #boton-tema i, #boton-tema-movil i");
     iconos.forEach(icono => {
-        icono.className = tema === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        if (tema === "dark") {
+            icono.className = "fa-solid fa-moon";
+            
+            icono.style.color = "#ffffff"; 
+        } else {
+            icono.className = "fa-solid fa-sun";
+            icono.style.color = ""; 
+        }
     });
 }
 
@@ -546,4 +553,141 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("carrusel-items-inicio") || document.querySelector(".carrusel-juegos")) {
         loadHomeFeatured();
     }
+});
+
+
+//-----------------perfil
+document.addEventListener('DOMContentLoaded', () => {
+    const authContainer = document.getElementById('auth-container');
+    const profileContainer = document.getElementById('profile-container');
+    const loginBox = document.getElementById('login-box');
+    const registerBox = document.getElementById('register-box');
+    
+    const showRegisterBtn = document.getElementById('show-register');
+    const showLoginBtn = document.getElementById('show-login');
+    
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    
+    // Elementos del perfil
+    const perfilNickname = document.querySelector('.perfil-nickname');
+    const profileEmail = document.getElementById('profile-email'); 
+    
+    const btnLogout = document.getElementById('btn-logout');
+
+    // 1. Verificar si hay un usuario logueado al cargar la página
+    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+
+    if (usuarioLogueado) {
+        if (authContainer) authContainer.style.display = 'none';
+        if (profileContainer) profileContainer.style.display = 'flex';
+        
+        // Rellenar datos en la vista de perfil
+        if (perfilNickname) perfilNickname.textContent = usuarioLogueado.nickname;
+        if (profileEmail) profileEmail.textContent = usuarioLogueado.email;
+    } else {
+        if (authContainer) authContainer.style.display = 'flex';
+        if (profileContainer) profileContainer.style.display = 'none';
+    }
+
+    // 2. Alternar formularios (añadida protección por si no existen en el DOM)
+    if (showRegisterBtn && showLoginBtn && loginBox && registerBox) {
+        showRegisterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginBox.style.display = 'none';
+            registerBox.style.display = 'block';
+        });
+
+        showLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerBox.style.display = 'none';
+            loginBox.style.display = 'block';
+        });
+    }
+
+    // 3. Manejar el Registro (con validación de formato de correo)
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nickname = document.getElementById('reg-nickname').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            // Validación de formato de correo electrónico
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regexEmail.test(email)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                return;
+            }
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            const usuarioExistente = usuarios.find(user => user.email === email);
+            if (usuarioExistente) {
+                alert('Este correo ya está registrado.');
+                return;
+            }
+
+            const nuevoUsuario = { nickname, email, password };
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            alert('¡Registro exitoso! Ahora inicia sesión.');
+            registerForm.reset();
+            if (registerBox) registerBox.style.display = 'none';
+            if (loginBox) loginBox.style.display = 'block';
+        });
+    }
+
+    // 4. Manejar el Login
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuarioEncontrado = usuarios.find(user => user.email === email && user.password === password);
+
+            if (usuarioEncontrado) {
+                localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioEncontrado));
+                window.location.reload();
+            } else {
+                alert('Correo o contraseña incorrectos.');
+            }
+        });
+    }
+
+    // 5. Cerrar Sesión
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            localStorage.removeItem('usuarioLogueado');
+            window.location.reload();
+        });
+    }
+
+    // 6. Botones para mostrar / ocultar contraseña (Corregido el sentido de los iconos)
+    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+
+    togglePasswordButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const passwordInput = document.getElementById(targetId);
+            const icon = button.querySelector('i');
+
+            if (!passwordInput || !icon) return;
+
+            if (passwordInput.type === 'password') {
+                // Ahora se muestra el texto -> Ojo abierto
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                // Se oculta el texto -> Ojo tachado
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+    });
 });
