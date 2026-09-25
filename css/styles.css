@@ -922,56 +922,12 @@ video {
 
 /* ------- perfil ------- */
 
-.header_site {
-    background-color: var(--color-tarjeta);
-    width: 100%;
-    border-bottom: 1px solid var(--color-borde);
-    transition: background-color var(--transicion), border-color var(--transicion);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.div_header_site {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 60px;
-    width: 100%;
-    position: relative;
-}
-
-.logo-img {
-    width: 45px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
-
-@media (min-width: 769px) {
-    .div_header_site nav {
-        display: flex;
-        gap: 30px;
-    }
-
-    .div_header_site nav a {
-        color: var(--color-texto);
-        text-decoration: none;
-        font-size: 1rem;
-        transition: color var(--transicion);
-    }
-
-    .div_header_site nav a:hover {
-        color: var(--color-morado);
-    }
-}
-
 .auth-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    min-height: calc(100vh - 140px);
+    padding: 100px 20px 40px;
+    min-height: calc(100vh - 70px);
     flex: 1;
 }
 
@@ -1174,12 +1130,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
         padding: 10px 16px;
     }
 
-    .div_header_site {
-        padding: 10px 16px;
-    }
-
-    .logo-imagen,
-    .logo-img {
+    .logo-imagen {
         height: 38px;
     }
 
@@ -1199,8 +1150,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     }
 
     /* Menú desplegable posicionado arriba a la derecha */
-    .menu-navegacion,
-    .div_header_site nav {
+    .menu-navegacion {
         display: none !important;
         position: absolute;
         top: calc(100% + 8px);
@@ -1215,8 +1165,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     }
 
     /* Al desplegar el menú */
-    .menu-navegacion.activo,
-    .div_header_site nav.activo {
+    .menu-navegacion.activo {
         display: flex !important;
         flex-direction: column !important;
         gap: 4px !important;
@@ -1239,7 +1188,6 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     }
 
     .menu-navegacion .enlace-menu,
-    .div_header_site nav a,
     .menu-navegacion>a {
         display: block;
         width: 100%;
@@ -1254,7 +1202,6 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     }
 
     .menu-navegacion .enlace-menu:hover,
-    .div_header_site nav a:hover,
     .menu-navegacion>a:hover {
         background-color: var(--color-morado-claro);
         color: var(--color-morado);
@@ -1419,7 +1366,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 
     /* --- PERFIL Y AUTH --- */
     .auth-section {
-        padding: 25px 12px;
+        padding: 85px 12px 25px;
         min-height: auto;
     }
 
