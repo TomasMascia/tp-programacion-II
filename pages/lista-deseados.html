@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de deseados</title>
     <!--Iconos-->
-    <link rel="icon" href="../assets/images/icono.png">
+    <link rel="icon" href="./assets/images/icono.webp" type="image/webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!--Fuente Montserrat-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <!--Estilos-->
     <link rel="stylesheet" href="../css/styles.css">
     <script>
@@ -26,7 +27,7 @@
     <header class="encabezado">
         <!--Logo de la pagina con boton para volver al inicio-->
         <a class="logo-sitio" href="../index.html">
-            <img class="logo-imagen" src="../assets/images/icono.png" alt="Icono de la pagina">
+            <img class="logo-imagen" src="../assets/images/icono.webp" alt="Icono de la pagina">
         </a>
 
         <!--Menu de navegacion para ir a las otras paginas que la componen-->
@@ -56,17 +57,18 @@
 
     <main class="contenedor-principal">
 
-            <div class="controles-deseados">
-                <input type="text" class="buscador-deseados" id="buscador-deseados" placeholder="Busca dentro de tus deseos..." autocomplete="off" aria-label="Buscar videojuegos">
-                <select id="ordenar-deseados" aria-label="Orden">
-                    <option value="">Ordenar por</option>
-                    <option value="titulo">Título (A-Z)</option>
-                    <option value="reciente">reciente</option>
-                    <option value="antiguo">antiguedad</option>
-                    <option value="precio-asc">Precio (Menor a Mayor)</option>
-                    <option value="precio-desc">Precio (Mayor a Menor)</option>
-                </select>
-            </div>
+        <div class="controles-deseados">
+            <input type="text" class="buscador-deseados" id="buscador-deseados"
+                placeholder="Busca dentro de tus deseos..." autocomplete="off" aria-label="Buscar videojuegos">
+            <select id="ordenar-deseados" aria-label="Orden">
+                <option value="">Ordenar por</option>
+                <option value="titulo">Título (A-Z)</option>
+                <option value="reciente">reciente</option>
+                <option value="antiguo">antiguedad</option>
+                <option value="precio-asc">Precio (Menor a Mayor)</option>
+                <option value="precio-desc">Precio (Mayor a Menor)</option>
+            </select>
+        </div>
 
         <div id="contenedor-deseados"></div>
     </main>
@@ -74,7 +76,7 @@
     <!-- NOTIFICACIONES TOAST -->
     <div id="contenedor-notificaciones" class="contenedor-notificaciones"></div>
 
-   <footer class="footer">
+    <footer class="footer">
         <p>Programacion II - Trabajo Practico</p>
     </footer>
     <script src="../js/app.js"></script>

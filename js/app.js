@@ -301,7 +301,7 @@ function ordenFiltroDeseados() {
 // Mostrar lista deseados
 function MostrarDeseados() {
     if (!contenedorDeseados) return;
-    const controlesDeseados = document.querySelector(".controles-deseados")
+    const controlesDeseados = document.querySelector(".controles-deseados");
 
     if (wishlist.length === 0) {
         contenedorDeseados.innerHTML = `
@@ -639,7 +639,7 @@ function toggleTheme() {
 }
 
 function renderThemeIcon(tema) {
-    const iconos = document.querySelectorAll("#icono-tema, #boton-tema i, #boton-tema-movil i");
+    const iconos = document.querySelectorAll("#icono-tema, #boton-tema i");
     iconos.forEach(icono => {
         if (tema === "dark") {
             icono.className = "fa-solid fa-moon";
@@ -658,13 +658,41 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartCounter();
 
     // Botones de tema
-    const botonesTema = document.querySelectorAll("#boton-tema, #boton-tema-movil");
+    const botonesTema = document.querySelectorAll("#boton-tema");
     botonesTema.forEach(btn => {
         if (!btn.dataset.initialized) {
             btn.dataset.initialized = "true";
             btn.addEventListener("click", toggleTheme);
         }
     });
+
+    // Menú de navegación en móvil
+    const botonMenuMovil = document.getElementById("boton-tema-movil");
+    const menuNavegacion = document.querySelector(".menu-navegacion");
+    if (botonMenuMovil && menuNavegacion && !botonMenuMovil.dataset.initialized) {
+        botonMenuMovil.dataset.initialized = "true";
+        botonMenuMovil.addEventListener("click", (e) => {
+            e.stopPropagation();
+            menuNavegacion.classList.toggle("activo");
+            botonMenuMovil.classList.toggle("activo");
+        });
+
+        // Cerrar al clickear fuera del menú
+        document.addEventListener("click", (e) => {
+            if (!menuNavegacion.contains(e.target) && !botonMenuMovil.contains(e.target)) {
+                menuNavegacion.classList.remove("activo");
+                botonMenuMovil.classList.remove("activo");
+            }
+        });
+
+        // Cerrar al clickear en cualquier enlace del menú
+        menuNavegacion.querySelectorAll("a").forEach(enlace => {
+            enlace.addEventListener("click", () => {
+                menuNavegacion.classList.remove("activo");
+                botonMenuMovil.classList.remove("activo");
+            });
+        });
+    }
 
     // Buscador
     const inputBuscador = document.getElementById("buscador-juegos");

@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="icon" href="../assets/images/icono.png">
+    <link rel="icon" href="./assets/images/icono.webp" type="image/webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Fuente Montserrat -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <script>
         const savedTheme = localStorage.getItem("theme") || "dark";
         document.documentElement.setAttribute("data-theme", savedTheme);
     </script>
 </head>
+
 <body>
     <header class="header_site">
         <div class="div_header_site">
             <a class="logo-sitio" href="../index.html">
-                <img class="logo-img" src="../assets/images/icono.png" alt="Icono de la pagina">
+                <img class="logo-img" src="../assets/images/icono.webp" alt="Icono de la pagina">
             </a>
             <nav class="menu-navegacion">
-                <a href="../index.html">Inicio</a>
-                <a href="./catalogo.html">Catálogo</a>
-                <a href="./carrito.html">Carrito</a>
-                <a href="./lista-deseados.html">Lista de deseados</a>
-                <a href="./perfil.html">Perfil</a>
+                <ul class="lista-menu">
+                    <li><a class="enlace-menu" href="../index.html">Inicio</a></li>
+                    <li><a class="enlace-menu" href="./catalogo.html">Catálogo</a></li>
+                    <li><a class="enlace-menu" href="./carrito.html">Carrito</a></li>
+                    <li><a class="enlace-menu" href="./lista-deseados.html">Lista de deseados</a></li>
+                    <li><a class="enlace-menu" href="./perfil.html">Perfil</a></li>
+                </ul>
             </nav>
-            
+
             <div class="acciones-encabezado">
-                <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche" title="Cambiar a Modo Día / Modo Noche">
+                <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche"
+                    title="Cambiar a Modo Día / Modo Noche">
                     <i class="fa-solid fa-moon" id="icono-tema"></i>
                 </button>
                 <button type="button" id="boton-tema-movil" aria-label="Abrir menu de navegacion" title="Abrir menú">
@@ -114,8 +120,10 @@
                     </div>
 
                     <div class="profile-actions">
-                        <button type="button" id="btn-edit-profile" class="btn-primary btn-secondary-color">Modificar Datos</button>
-                        <button type="submit" id="btn-save-profile" class="btn-primary form-hidden">Guardar Cambios</button>
+                        <button type="button" id="btn-edit-profile" class="btn-primary btn-secondary-color">Modificar
+                            Datos</button>
+                        <button type="submit" id="btn-save-profile" class="btn-primary form-hidden">Guardar
+                            Cambios</button>
                     </div>
                 </form>
 
@@ -160,4 +168,5 @@
     </footer>
     <script src="../js/app.js"></script>
 </body>
+
 </html>
