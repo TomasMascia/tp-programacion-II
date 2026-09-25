@@ -20,9 +20,9 @@
     --color-encabezado: #ffffff;
     --color-borde: #e4e4e7;
     --color-morado: #7800c9;
-    --color-morado-hover: #a968cf;
-    --color-morado-claro: rgba(76, 0, 255, 0.459);
-    --color-texto: #7800c9;
+    --color-morado-hover: #530083;
+    --color-morado-claro: rgba(147, 100, 255, 0.459);
+    --color-texto: #7800c9; 
     --color-texto-secundario: #7800c9;
 }
 
@@ -43,21 +43,18 @@ select {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px; 
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     margin: 0;
-    overflow-x: hidden;
 }
 
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--color-tarjeta);
-    border-top: 1px solid var(--color-borde);
-    color: var(--color-texto-secundario);
+    background-color: var(--color-tarjeta); 
+    border-top: 1px solid var(--color-borde);  
+    color: var(--color-texto-secundario);       
     font-size: 0.85rem;
     transition: background-color var(--transicion), color var(--transicion);
 }
@@ -199,8 +196,7 @@ body {
     color: var(--color-texto-secundario);
 }
 
-.boton-banner,
-.volver {
+.boton-banner, .volver {
     background-color: var(--color-morado);
     color: #ffffff;
     padding: 12px 24px;
@@ -212,8 +208,7 @@ body {
     transition: background-color var(--transicion);
 }
 
-.boton-banner:hover,
-.volver:hover {
+.boton-banner:hover, .volver:hover {
     background-color: var(--color-morado-hover);
 }
 
@@ -471,7 +466,7 @@ body {
     max-width: 500px;
 }
 
-#buscador-juegos{
+#buscador-juegos {
     width: 100%;
     padding: 12px 20px;
     font-size: 16px;
@@ -483,7 +478,7 @@ body {
     transition: border-color var(--transicion);
 }
 
-#buscador-juegos:focus, .buscador-deseados:focus {
+#buscador-juegos:focus {
     border-color: var(--color-morado);
 }
 
@@ -741,39 +736,24 @@ body {
 /* Notificaciones */
 
 @keyframes aparecerNoti {
-    0% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes desaparecerNoti {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
+    0% { opacity: 1; transform: translateY(0); 
         padding-top: 15px;
         padding-bottom: 15px;
         margin-bottom: 0;
         border-width: 1px;
     }
-
-    50% {
-        opacity: 0;
-        transform: translateY(-30px);
+    50% { opacity: 0; transform: translateY(-30px); 
         padding-top: 15px;
         padding-bottom: 15px;
         margin-bottom: 0;
         border-width: 1px;
     }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-30px);
+    100% { opacity: 0; transform: translateY(-30px); 
         padding-top: 0;
         padding-bottom: 0;
         margin-bottom: -10px;
@@ -791,10 +771,10 @@ body {
     gap: 10px;
     align-items: flex-end;
 
-
+   
 }
 
-.notificacion {
+.notificacion{
     animation: aparecerNoti 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, desaparecerNoti 0.4s ease forwards 2.6s;
     overflow: hidden;
     white-space: nowrap;
@@ -803,13 +783,13 @@ body {
 
 /* Lista de deseados */
 
-.listaVacia {
+.listaVacia{
     grid-column: 1 / -1;
-
+    
     width: 100vw;
     margin-left: calc(50% - 50vw);
     min-height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/fondoDeseados.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgTP/otroFondo.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -823,7 +803,7 @@ body {
     box-sizing: border-box;
 }
 
-.listaVacia p {
+.listaVacia p{
     color: var(--color-texto);
     font-size: 1.5rem;
     text-align: center;
@@ -850,88 +830,11 @@ body {
     #contenedor-deseados {
         grid-template-columns: 1fr;
     }
-
     #contenedor-deseados .tarjeta-juego:last-child:nth-child(odd) {
         grid-column: auto;
         width: 100%;
     }
 }
-
-/*controles de deseados*/
-.controles-deseados {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    margin: 20px auto 30px auto;
-    max-width: 850px;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-}
-
-.buscador-deseados{
-    flex: 3;
-    width: auto;
-    min-width: 250px;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-tarjeta);
-    color: var(--color-texto);
-    outline: none;
-    transition: border-color var(--transicion);
-}
-
-#ordenar-deseados {
-    flex: 1;
-    max-width: 220px;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-tarjeta);
-    color: var(--color-texto);
-    outline: none;
-    cursor: pointer;
-    transition: border-color var(--transicion);
-}
-
-.buscador-deseados:focus, #ordenar-deseados:focus {
-    border-color: var(--color-morado);
-}
-
-.deseoNoEncontrado {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin: 40px 0;
-}
-.deseoNoEncontrado p {
-    color: var(--color-texto);
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0;
-}
-
-
-/* footer */
-footer {
-    margin-top: auto;
-    padding: 25px;
-    text-align: center;
-    border-top: 1px solid var(--color-borde);
-    background-color: var(--color-encabezado);
-    color: var(--color-texto-secundario);
-    font-size: 14px;
-}
-
-
-
 /* ------- perfil ------- */
 
 .header_site {
@@ -962,7 +865,7 @@ footer {
 }
 
 .div_header_site nav a {
-    color: var(--color-texto);
+    color: var(--color-texto); 
     text-decoration: none;
     font-size: 1rem;
     transition: color var(--transicion);
@@ -982,14 +885,14 @@ footer {
 }
 
 .auth-card {
-    background-color: var(--color-tarjeta);
+    background-color: var(--color-tarjeta); 
     padding: 30px;
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: var(--color-texto);
-    border: 1px solid var(--color-borde);
+    color: var(--color-texto);                
+    border: 1px solid var(--color-borde);     
     transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
 }
 
@@ -997,7 +900,7 @@ footer {
     margin-bottom: 20px;
     font-size: 1.8rem;
     text-align: center;
-    color: var(--color-texto);
+    color: var(--color-texto);                
 }
 
 .form-group {
@@ -1009,15 +912,15 @@ footer {
 .form-group label {
     margin-bottom: 5px;
     font-size: 0.9rem;
-    color: var(--color-texto-secundario);
+    color: var(--color-texto-secundario);      
 }
 
 .form-group input {
     padding: 10px;
     border-radius: 4px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
+    border: 1px solid var(--color-borde);      
+    background-color: var(--color-fondo);   
+    color: var(--color-texto);                
     font-size: 1rem;
     transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
 }
@@ -1049,7 +952,7 @@ footer {
     margin-top: 20px;
     text-align: center;
     font-size: 0.9rem;
-    color: var(--color-texto-secundario);
+    color: var(--color-texto-secundario);     
 }
 
 .auth-redirect a {
@@ -1069,7 +972,7 @@ footer {
 
 .password-container input {
     width: 100%;
-    padding-right: 40px;
+    padding-right: 40px; 
 }
 
 .toggle-password {
@@ -1086,3 +989,74 @@ footer {
 .toggle-password:hover {
     color: var(--color-morado);
 }
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+}
+
+.form-hidden {
+    display: none !important;
+}
+
+.profile-card-wide {
+    max-width: 600px !important;
+    width: 100%;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.profile-actions .btn-primary {
+    flex: 1;
+    margin-top: 0;
+}
+
+#btn-edit-profile {
+    background-color: var(--color-morado);
+}
+
+#btn-edit-profile:hover {
+    background-color: var(--color-morado-hover);
+}
+
+.profile-divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid var(--color-borde, #ccc);
+}
+
+.profile-subform {
+    margin-top: 10px;
+}
+
+.profile-wishlist-box {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.btn-full-width {
+    width: 100%;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+

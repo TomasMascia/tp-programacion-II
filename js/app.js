@@ -748,56 +748,64 @@ window.addEventListener("pageshow", () => {
 });
 
 
-//-----------------perfil-----------------
+//-----------------perfil y gestión de cuenta
 document.addEventListener('DOMContentLoaded', () => {
     const authContainer = document.getElementById('auth-container');
     const profileContainer = document.getElementById('profile-container');
     const loginBox = document.getElementById('login-box');
     const registerBox = document.getElementById('register-box');
-
+    
     const showRegisterBtn = document.getElementById('show-register');
     const showLoginBtn = document.getElementById('show-login');
-
+    
     const registerForm = document.getElementById('register-form');
     const loginForm = document.getElementById('login-form');
-
-    // Elementos del perfil
-    const perfilNickname = document.querySelector('.perfil-nickname');
-    const profileEmail = document.getElementById('profile-email');
-
+    
+    // Elementos de la zona de perfil y edición
+    const profileForm = document.getElementById('profile-form');
+    const profileNicknameInput = document.getElementById('profile-nickname-input');
+    const profileEmailInput = document.getElementById('profile-email-input');
+    const btnEditProfile = document.getElementById('btn-edit-profile');
+    const btnSaveProfile = document.getElementById('btn-save-profile');
+    const changePasswordForm = document.getElementById('change-password-form');
+    const profileWishlistContainer = document.getElementById('profile-wishlist-container');
+    
     const btnLogout = document.getElementById('btn-logout');
 
     // 1. Verificar si hay un usuario logueado al cargar la página
     const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
 
     if (usuarioLogueado) {
-        if (authContainer) authContainer.style.display = 'none';
-        if (profileContainer) profileContainer.style.display = 'flex';
+        if (authContainer) authContainer.classList.add('form-hidden');
+        if (profileContainer) profileContainer.classList.remove('form-hidden');
+        
+        // Rellenar datos en los inputs del perfil
+        if (profileNicknameInput) profileNicknameInput.value = usuarioLogueado.nickname;
+        if (profileEmailInput) profileEmailInput.value = usuarioLogueado.email;
 
-        // Rellenar datos en la vista de perfil
-        if (perfilNickname) perfilNickname.textContent = usuarioLogueado.nickname;
-        if (profileEmail) profileEmail.textContent = usuarioLogueado.email;
+        // Cargar lista de deseados del usuario
+        cargarListaDeseadosPerfil();
     } else {
-        if (authContainer) authContainer.style.display = 'flex';
-        if (profileContainer) profileContainer.style.display = 'none';
+        if (authContainer) authContainer.classList.remove('form-hidden');
+        if (profileContainer) profileContainer.classList.add('form-hidden');
     }
 
-    // 2. Alternar formularios (añadida protección por si no existen en el DOM)
-    if (showRegisterBtn && showLoginBtn && loginBox && registerBox) {
+    // 2. Alternar formularios de Login / Registro dentro de la autenticación
+    if (showRegisterBtn && showLoginBtn) {
         showRegisterBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            loginBox.style.display = 'none';
-            registerBox.style.display = 'block';
+            loginBox.classList.add('form-hidden');
+            registerBox.classList.remove('form-hidden');
         });
 
         showLoginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            registerBox.style.display = 'none';
-            loginBox.style.display = 'block';
+            registerBox.classList.add('form-hidden');
+            loginBox.classList.remove('form-hidden');
         });
     }
 
-    // 3. Manejar el Registro (con validación de formato de correo)
+    // 3. Manejar el Registro
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -805,7 +813,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('reg-email').value;
             const password = document.getElementById('reg-password').value;
 
-            // Validación de formato de correo electrónico
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!regexEmail.test(email)) {
                 alert('Por favor, ingresa un correo electrónico válido.');
@@ -813,7 +820,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
             const usuarioExistente = usuarios.find(user => user.email === email);
             if (usuarioExistente) {
                 alert('Este correo ya está registrado.');
@@ -826,8 +832,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             alert('¡Registro exitoso! Ahora inicia sesión.');
             registerForm.reset();
-            if (registerBox) registerBox.style.display = 'none';
-            if (loginBox) loginBox.style.display = 'block';
+            registerBox.classList.add('form-hidden');
+            loginBox.classList.remove('form-hidden');
         });
     }
 
@@ -850,7 +856,151 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Cerrar Sesión
+    // 5. Habilitar la edición de datos personales y alternar botones
+    if (btnEditProfile) {
+        btnEditProfile.addEventListener('click', () => {
+            profileNicknameInput.removeAttribute('disabled');
+            profileEmailInput.removeAttribute('disabled');
+            profileNicknameInput.focus();
+
+            // Ocultar botón de modificar y mostrar botón de guardar cambios
+            btnEditProfile.classList.add('form-hidden');
+            btnSaveProfile.classList.remove('form-hidden');
+        });
+    }
+
+    // 6. Guardar cambios de datos personales
+    if (profileForm) {
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nuevoNickname = profileNicknameInput.value;
+            const nuevoEmail = profileEmailInput.value;
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            let usuarioActual = JSON.parse(localStorage.getItem('usuarioLogueado'));
+
+            const correoOcupado = usuarios.find(user => user.email === nuevoEmail && user.email !== usuarioActual.email);
+            if (correoOcupado) {
+                alert('Este correo ya está en uso por otra cuenta.');
+                return;
+            }
+
+            usuarios = usuarios.map(user => {
+                if (user.email === usuarioActual.email) {
+                    return { ...user, nickname: nuevoNickname, email: nuevoEmail };
+                }
+                return user;
+            });
+
+            usuarioActual.nickname = nuevoNickname;
+            usuarioActual.email = nuevoEmail;
+
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioActual));
+
+            alert('Datos actualizados correctamente.');
+            window.location.reload();
+        });
+    }
+
+    // 6.1. Cambiar contraseña desde el perfil
+    if (changePasswordForm) {
+        changePasswordForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            let usuarioActual = JSON.parse(localStorage.getItem('usuarioLogueado'));
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            if (usuarioActual.password !== currentPassword) {
+                alert('La contraseña actual es incorrecta.');
+                return;
+            }
+
+            usuarios = usuarios.map(user => {
+                if (user.email === usuarioActual.email) {
+                    return { ...user, password: newPassword };
+                }
+                return user;
+            });
+
+            usuarioActual.password = newPassword;
+
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioActual));
+
+            alert('¡Contraseña actualizada con éxito!');
+            changePasswordForm.reset();
+        });
+    }
+
+    function cargarListaDeseadosPerfil() {
+        if (!profileWishlistContainer) return;
+
+        const rawDeseados = localStorage.getItem('deseados');
+        const deseados = JSON.parse(rawDeseados) || [];
+        
+        console.log("CONTENIDOS EXACTOS DE 'deseados':", deseados);
+
+        if (deseados.length === 0) {
+            profileWishlistContainer.innerHTML = '<p style="color: var(--color-texto-secundario); font-size: 0.9rem; text-align: center; padding: 10px;">No tienes juegos en tu lista de deseados.</p>';
+            return;
+        }
+
+        profileWishlistContainer.innerHTML = '';
+        deseados.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.style.cssText = 'display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 8px; gap: 10px; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 8px;';
+            
+            let nombreJuego = 'Juego sin título';
+            let imagenSrc = '../assets/images/icono.png';
+            let precioJuego = 'Consultar';
+
+            if (item !== null && item !== undefined) {
+                if (typeof item === 'string' || typeof item === 'number') {
+                    nombreJuego = String(item);
+                } else if (typeof item === 'object') {
+                    nombreJuego = item.nombre || item.titulo || item.title || item.name || item.game || item.gameName || item.text || item.label || JSON.stringify(item);
+
+                    imagenSrc = item.imagen || item.img || item.portada || item.image || item.foto || item.thumbnail || item.poster || item.logo || '../assets/images/icono.png';
+                    
+                    const precioVal = item.precio !== undefined ? item.precio : (item.price !== undefined ? item.price : null);
+                    if (precioVal !== null && precioVal !== '' && precioVal !== undefined) {
+                        precioJuego = `$${precioVal}`;
+                    }
+                }
+            }
+
+            itemElement.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; width: 85%;">
+                    <img src="${imagenSrc}" alt="${nombreJuego}" style="width: 50px; height: 38px; object-fit: cover; border-radius: 4px; flex-shrink: 0;" onerror="this.src='../assets/images/icono.png'">
+                    <div style="display: flex; flex-direction: column; overflow: hidden; width: 100%;">
+                        <span style="font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff;" title="${nombreJuego}">${nombreJuego}</span>
+                        <span style="color: var(--color-primario); font-weight: bold; font-size: 0.85rem;">${precioJuego}</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-remove-wishlist" data-index="${index}" title="Eliminar de deseados" style="background: transparent; border: none; color: #ff5252; cursor: pointer; font-size: 1rem; padding: 5px; flex-shrink: 0;">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            `;
+            profileWishlistContainer.appendChild(itemElement);
+        });
+
+        // Eventos para eliminar elementos
+        const deleteButtons = profileWishlistContainer.querySelectorAll('.btn-remove-wishlist');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.currentTarget.getAttribute('data-index');
+                let deseadosArr = JSON.parse(localStorage.getItem('deseados')) || [];
+                deseadosArr.splice(index, 1);
+                localStorage.setItem('deseados', JSON.stringify(deseadosArr));
+                cargarListaDeseadosPerfil();
+            });
+        });
+    }
+    
+    // 7. Cerrar Sesión
     if (btnLogout) {
         btnLogout.addEventListener('click', () => {
             localStorage.removeItem('usuarioLogueado');
@@ -858,7 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Botones para mostrar / ocultar contraseña (Corregido el sentido de los iconos)
+    // 8. Botones para mostrar / ocultar contraseña
     const togglePasswordButtons = document.querySelectorAll('.toggle-password');
 
     togglePasswordButtons.forEach(button => {
@@ -867,15 +1017,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const passwordInput = document.getElementById(targetId);
             const icon = button.querySelector('i');
 
-            if (!passwordInput || !icon) return;
-
             if (passwordInput.type === 'password') {
-                // Ahora se muestra el texto -> Ojo abierto
                 passwordInput.type = 'text';
                 icon.classList.remove('fa-eye-slash');
                 icon.classList.add('fa-eye');
             } else {
-                // Se oculta el texto -> Ojo tachado
                 passwordInput.type = 'password';
                 icon.classList.remove('fa-eye');
                 icon.classList.add('fa-eye-slash');
