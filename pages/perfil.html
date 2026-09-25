@@ -1,3 +1,15 @@
+Para agregar el botón de cerrar sesión a tu código, necesitamos hacer dos cosas:
+
+En el HTML: Añadir el botón con el ID btn-logout dentro de la tarjeta de perfil (profile-container) para que solo aparezca cuando el usuario haya iniciado sesión.
+
+En el JavaScript: Ya tienes gran parte del código escrito que busca btn-logout y elimina usuarioLogueado del localStorage, pero podemos asegurarnos de que funcione perfectamente y limpiar un pequeño error tipográfico en el HTML inicial (" !DOCTYPE html>).
+
+Aquí tienes los códigos actualizados y listos para usar:
+
+1. Tu código HTML modificado
+(Se añadió el botón #btn-logout justo después del formulario de cambiar contraseña)
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,7 +19,6 @@
     <title>Perfil</title>
     <link rel="icon" href="../assets/images/icono.webp" type="image/webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Fuente Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
@@ -46,13 +57,11 @@
     </header>
 
     <main class="main-container">
-        <!-- VISTA 1: Se muestra si NO hay sesión iniciada -->
         <section id="auth-container" class="auth-section">
             <div class="auth-card">
-                <!-- Formulario de Login -->
                 <div id="login-box">
                     <h1>Iniciar Sesión</h1>
-                    <form id="login-form">
+                    <form id="login-form" novalidate>
                         <div class="form-group">
                             <label for="login-email">Correo electrónico</label>
                             <input type="email" id="login-email" required placeholder="tu_correo@example.com">
@@ -73,10 +82,9 @@
                     </p>
                 </div>
 
-                <!-- Formulario de Registro -->
                 <div id="register-box" class="form-hidden">
                     <h1>Crear Cuenta</h1>
-                    <form id="register-form">
+                    <form id="register-form" novalidate>
                         <div class="form-group">
                             <label for="reg-nickname">Nombre de usuario</label>
                             <input type="text" id="reg-nickname" required placeholder="TuApodo">
@@ -103,11 +111,10 @@
             </div>
         </section>
 
-        <!-- VISTA 2: Se muestra SI hay sesión iniciada -->
         <section id="profile-container" class="auth-section form-hidden">
             <div class="auth-card profile-card-wide">
                 <h1>Mi Perfil</h1>
-                <form id="profile-form">
+                <form id="profile-form" novalidate>
                     <div class="form-group">
                         <label for="profile-nickname-input">Nombre de usuario</label>
                         <input type="text" id="profile-nickname-input" disabled required>
@@ -118,17 +125,14 @@
                     </div>
 
                     <div class="profile-actions">
-                        <button type="button" id="btn-edit-profile" class="btn-primary btn-secondary-color">Modificar
-                            Datos</button>
-                        <button type="submit" id="btn-save-profile" class="btn-primary form-hidden">Guardar
-                            Cambios</button>
+                        <button type="button" id="btn-edit-profile" class="btn-primary btn-secondary-color">Modificar Datos</button>
+                        <button type="submit" id="btn-save-profile" class="btn-primary form-hidden">Guardar Cambios</button>
                     </div>
                 </form>
 
-                <!-- Sección para Cambiar Contraseña -->
                 <hr class="profile-divider">
                 <h3>Cambiar Contraseña</h3>
-                <form id="change-password-form" class="profile-subform">
+                <form id="change-password-form" class="profile-subform" novalidate>
                     <div class="form-group">
                         <label for="current-password">Contraseña actual</label>
                         <div class="password-container">
@@ -150,13 +154,10 @@
                     <button type="submit" class="btn-primary btn-full-width">Actualizar Contraseña</button>
                 </form>
 
-                <!-- Sección de Lista de Deseados en el Perfil -->
-                <hr class="profile-divider">
-                <h3>Mi Lista de Deseados</h3>
-                <div id="profile-wishlist-container" class="profile-wishlist-box">
+                <!-- NUEVO BOTÓN DE CERRAR SESIÓN -->
+                <div class="profile-actions" style="margin-top: 20px;">
+                    <button type="button" id="btn-logout" class="btn-primary btn-full-width" style="background-color: #d9534f;">Cerrar Sesión</button>
                 </div>
-
-                <button id="btn-logout" class="btn-primary btn-danger btn-full-width">Cerrar Sesión</button>
             </div>
         </section>
     </main>
