@@ -46,6 +46,10 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .footer {
@@ -467,7 +471,7 @@ body {
     max-width: 500px;
 }
 
-#buscador-juegos {
+#buscador-juegos{
     width: 100%;
     padding: 12px 20px;
     font-size: 16px;
@@ -479,7 +483,7 @@ body {
     transition: border-color var(--transicion);
 }
 
-#buscador-juegos:focus {
+#buscador-juegos:focus, .buscador-deseados:focus {
     border-color: var(--color-morado);
 }
 
@@ -805,7 +809,7 @@ body {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     min-height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgTP/otroFondo.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/fondoDeseados.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -853,12 +857,71 @@ body {
     }
 }
 
+/*controles de deseados*/
+.controles-deseados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 20px auto 30px auto;
+    max-width: 850px;
+    padding: 0 20px;
+    box-sizing: border-box;
 
+}
+
+.buscador-deseados{
+    flex: 3;
+    width: auto;
+    min-width: 250px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    outline: none;
+    transition: border-color var(--transicion);
+}
+
+#ordenar-deseados {
+    flex: 1;
+    max-width: 220px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--transicion);
+}
+
+.buscador-deseados:focus, #ordenar-deseados:focus {
+    border-color: var(--color-morado);
+}
+
+.deseoNoEncontrado {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+.deseoNoEncontrado p {
+    color: var(--color-texto);
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
 
 
 /* footer */
 footer {
-    margin-top: 60px;
+    margin-top: auto;
     padding: 25px;
     text-align: center;
     border-top: 1px solid var(--color-borde);

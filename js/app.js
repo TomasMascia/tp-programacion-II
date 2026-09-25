@@ -232,7 +232,6 @@ function toggleWishlist(gameId, botonElemento) {
     }
 
     localStorage.setItem("deseados", JSON.stringify(wishlist));
-    // localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
     const estasEnWIshlist = document.getElementById("contenedor-deseados");
     if (estasEnWIshlist) {
@@ -241,23 +240,80 @@ function toggleWishlist(gameId, botonElemento) {
 
 }
 
+//filtro y busqueda deseados
+function ordenFiltroDeseados() {
+    if (!contenedorDeseados || wishlist.length === 0) return;
+
+    const limpiarTexto = (texto) => (texto || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    const busqueda = document.getElementById("buscador-deseados");
+    const filtro = document.getElementById("ordenar-deseados");
+
+    const busca = busqueda ? limpiarTexto(busqueda.value.trim()) : "";
+    const orden = filtro ? filtro.value : "defecto";
+
+    localStorage.setItem("ordenDeseados", orden);
+
+    let juegosDeseados = allGames.filter(game => wishlist.includes(game.id));
+
+    if (busca !== "") {
+        juegosDeseados = juegosDeseados.filter(game => {
+            const coincideTitulo = limpiarTexto(game.title).includes(busca);
+            const generos = Array.isArray(game.genre)
+                ? game.genre
+                : typeof game.genre === "string"
+                    ? game.genre.split(",")
+                    : [];
+            const coincideGenero = generos.some(g => limpiarTexto(g).includes(busca));
+            return coincideTitulo || coincideGenero;
+        });
+
+        if (juegosDeseados.length === 0) {
+            contenedorDeseados.innerHTML = `
+            <div class="deseoNoEncontrado">
+                <p>No guardaste ese juego o juegos de esa categoría</p>
+                <a href="./catalogo.html" class="volver">¿Te gustaría buscarlo en el catálogo?</a>
+            </div>
+            `;
+            return;
+        }
+    }
+    
+    
+
+    if(orden === "titulo"){
+        juegosDeseados.sort((a, b) => a.title.localeCompare(b.title));
+    } else if(orden === "reciente"){
+        juegosDeseados.sort((a, b) => wishlist.indexOf(b.id) - wishlist.indexOf(a.id))
+    }else if(orden === "precio-asc"){
+        juegosDeseados.sort((a,b) => Number(a.price) - Number(b.price));
+    }else if(orden === "precio-desc"){
+        juegosDeseados.sort((a,b) => Number(b.price) - Number(a.price));
+    }else if(orden === "antiguo"){
+        juegosDeseados.sort((a, b) => wishlist.indexOf(a.id) - wishlist.indexOf(b.id));
+    }
+
+    renderCatalog(juegosDeseados);
+
+}
+
+
 // Mostrar lista deseados
 function MostrarDeseados() {
-    const contenedor = document.getElementById("contenedor-deseados");
-    if (!contenedor) return;
-
-    wishlist = JSON.parse(localStorage.getItem("deseados")) || [];
+    if (!contenedorDeseados) return;
+    const controlesDeseados = document.querySelector(".controles-deseados")
 
     if (wishlist.length === 0) {
-        contenedor.innerHTML = `
+        contenedorDeseados.innerHTML = `
         <div class="listaVacia">
             <p>¿Aun no encontraste nada que te guste?</p>
             <a href="./catalogo.html" class="volver">Aqui puedes seguir buscando!</a>
         </div>
         `;
+        if(controlesDeseados) controlesDeseados.style.display = "none";
     } else {
-        const listaJuegos = allGames.filter(game => wishlist.includes(game.id));
-        renderCatalog(listaJuegos);
+        if(controlesDeseados) controlesDeseados.style.display = "flex";
+        ordenFiltroDeseados();
     }
 }
 
@@ -636,10 +692,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Carga Lista Deseados
-    const contenedorDeseadosEl = document.getElementById("contenedor-deseados");
-    if (contenedorDeseadosEl && !contenedorDeseadosEl.dataset.initialized) {
-        contenedorDeseadosEl.dataset.initialized = "true";
-        contenedorDeseadosEl.addEventListener("click", handleCatalogClicks);
+    if (contenedorDeseados) {
+        contenedorDeseados.addEventListener("click", handleCatalogClicks);
+
+        const buscadorDeseados = document.getElementById("buscador-deseados");
+        const filtroDeseados = document.getElementById("ordenar-deseados");
+
+        if(filtroDeseados && localStorage.getItem("ordenDeseados")){
+            filtroDeseados.value = localStorage.getItem("ordenDeseados");
+        }
+
+        if(buscadorDeseados) buscadorDeseados.addEventListener("input", ordenFiltroDeseados);
+        if(filtroDeseados) filtroDeseados.addEventListener("change", ordenFiltroDeseados);
 
         fetchGamesData().then(games => {
             allGames = games;
