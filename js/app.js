@@ -213,6 +213,210 @@ function addToCart(gameId) {
     updateCartCounter();
     showToast(`"${game.title}" agregado al carrito.`);
 }
+function mostrarNotificacion(mensaje) {
+    const notificacion = document.createElement("div");
+    notificacion.textContent = mensaje;
+    
+    
+    Object.assign(notificacion.style, {
+        position: "fixed",
+        bottom: "20px",
+        right: "20px",
+        backgroundColor: "#ffffff", 
+        color: "#333333",
+        border: "2px solid #6f42c1", // Color violeta para el borde
+        padding: "12px 20px",
+        borderRadius: "6px",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+        fontFamily: "sans-serif",
+        fontSize: "15px",
+        zIndex: "9999",
+        opacity: "0",
+        transform: "translateY(20px)",
+        transition: "opacity 0.3s ease, transform 0.3s ease"
+    });
+
+    document.body.appendChild(notificacion);
+
+    setTimeout(() => {
+        notificacion.style.opacity = "1";
+        notificacion.style.transform = "translateY(0)";
+    }, 10);
+
+    setTimeout(() => {
+        notificacion.style.opacity = "0";
+        notificacion.style.transform = "translateY(20px)";
+        setTimeout(() => notificacion.remove(), 300);
+    }, 3000);
+}
+function renderCart() {
+    const contenedor = document.getElementById("contenedor-carrito");
+    const resumen = document.getElementById("resumen-carrito");
+
+    if (!contenedor || !resumen) return;
+
+    if (cart.length === 0) {
+        contenedor.innerHTML = `
+            <div class="carrito-vacio">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h2>Tu carrito está vacío</h2>
+                <p>Agregá juegos desde el catálogo para comenzar tu compra.</p>
+                <a href="catalogo.html" class="btn-ir-catalogo">Ir al catálogo</a>
+            </div>
+        `;
+        resumen.innerHTML = "";
+        resumen.style.display = "none"; 
+        
+        contenedor.style.width = "100%";
+        return;
+    }
+    resumen.style.display = "block"; 
+    contenedor.style.width = "";
+
+    const grupos = [];
+    cart.forEach(juego => {
+        const existente = grupos.find(item => item.id === juego.id);
+        if (existente) {
+            existente.cantidad++;
+        } else {
+            grupos.push({ id: juego.id, juego, cantidad: 1 });
+        }
+    });
+
+    let subtotal = 0;
+    grupos.forEach(item => {
+        subtotal += (Number(item.juego.price) || 0) * item.cantidad;
+    });
+
+    const impuestos = subtotal > 0 ? 5 : 0;
+    const total = subtotal + impuestos;
+
+    contenedor.innerHTML = grupos.map(item => {
+        const juego = item.juego;
+        const precio = Number(juego.price) || 0;
+        const precioTexto = precio === 0 ? "Gratis" : `$${precio.toFixed(2)}`;
+
+        return `
+            <article class="item-carrito">
+                <img class="imagen-item-carrito"
+                     src="${juego.image}"
+                     alt="${juego.title}"
+                     onerror="this.src='https://via.placeholder.com/460x260?text=Sin+Imagen'">
+
+                <div class="info-item-carrito">
+                    <h2>${juego.title}</h2>
+                    <p>Standard Edition - PC. Instant digital key</p>
+                    <strong>${precioTexto}</strong>
+                </div>
+
+                <div class="acciones-item-carrito">
+                    <div class="control-cantidad">
+                        <button type="button" class="btn-cantidad"
+                                data-id="${juego.id}" data-accion="restar"
+                                aria-label="Disminuir cantidad">−</button>
+                        <span>${item.cantidad}</span>
+                        <button type="button" class="btn-cantidad"
+                                data-id="${juego.id}" data-accion="sumar"
+                                aria-label="Aumentar cantidad">+</button>
+                    </div>
+
+                    <button type="button" class="btn-eliminar"
+                            data-id="${juego.id}"
+                            aria-label="Eliminar ${juego.title}"
+                            title="Eliminar">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </article>
+        `;
+    }).join("");
+
+    resumen.innerHTML = `
+        <div class="cabecera-resumen">
+            <h2>Resumen de Compra</h2>
+        </div>
+
+        <div class="totales-resumen">
+            <div><span>Subtotal:</span><strong>$${subtotal.toFixed(2)}</strong></div>
+            <div><span>Impuestos:</span><strong>$${impuestos.toFixed(2)}</strong></div>
+            <div class="total-final"><span>Total:</span><strong>$${total.toFixed(2)}</strong></div>
+        </div>
+
+        <button id="btn-confirmar-pago" class="btn-confirmar-pago">
+            Comprar
+        </button>
+    `;
+
+    contenedor.querySelectorAll(".btn-cantidad").forEach(boton => {
+        boton.addEventListener("click", () => {
+            const id = Number(boton.dataset.id);
+
+            if (boton.dataset.accion === "sumar") {
+                const juego = cart.find(item => item.id === id);
+                if (juego) cart.push(juego);
+            } else {
+                const indice = cart.findIndex(item => item.id === id);
+                if (indice !== -1) cart.splice(indice, 1);
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(cart));
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            if (typeof updateCartCounter === 'function') updateCartCounter();
+        });
+    });
+
+    contenedor.querySelectorAll(".btn-eliminar").forEach(boton => {
+        boton.addEventListener("click", () => {
+            const id = Number(boton.dataset.id);
+            cart = cart.filter(item => item.id !== id);
+
+            localStorage.setItem("carrito", JSON.stringify(cart));
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            if (typeof updateCartCounter === 'function') updateCartCounter();
+        });
+    });
+
+    const btnComprar = resumen.querySelector("#btn-confirmar-pago");
+    btnComprar.addEventListener("click", () => {
+        
+        mostrarNotificacion("¡Compra realizada con éxito!");
+
+        cart = [];
+
+        localStorage.setItem("carrito", JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        renderCart();
+        
+        if (typeof updateCartCounter === 'function') {
+            updateCartCounter();
+        }
+    });
+}
+function realizarCompra() {
+    if (cart.length === 0) {
+        showToast("El carrito está vacío.");
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach(juego => {
+        total += Number(juego.price) || 0;
+    });
+
+    showToast(`Compra realizada. Total: $${total.toFixed(2)}`);
+
+    cart = [];
+
+    localStorage.setItem("carrito", JSON.stringify(cart));
+
+    renderCart();
+    updateCartCounter();
+}
+
 
 function toggleWishlist(gameId, botonElemento) {
     const game = allGames.find(g => g.id === gameId);
@@ -656,6 +860,7 @@ function renderThemeIcon(tema) {
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     updateCartCounter();
+    renderCart();
 
     // Botones de tema
     const botonesTema = document.querySelectorAll("#boton-tema");
