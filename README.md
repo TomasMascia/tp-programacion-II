@@ -25,8 +25,12 @@ Aclaración: se puede notar en el trabajo una diferencia en la cantidad de commi
 
 Demtrp de los primeros commits de Tomas fueron todos juntos en una misma casa, ya que al inicio nos juntamos para planear todo el codigo y lo que ibamos a hacer
 
-
 Fue una experiencia muy divertida!!!
+
+Como un detalle lo pudimos hostear en Vercel para poder abrirlo de distintos dispositivos sin tener que descargar todo. Muchas gracias!!
+
+https://tp-programacion-ii.vercel.app/
+
 
 Integrantes:
 - Tomás Mascia
