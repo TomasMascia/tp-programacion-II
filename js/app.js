@@ -505,7 +505,7 @@ function ordenFiltroDeseados() {
 // Mostrar lista deseados
 function MostrarDeseados() {
     if (!contenedorDeseados) return;
-    const controlesDeseados = document.querySelector(".controles-deseados");
+    const controlesDeseados = document.querySelector(".controles-deseados")
 
     if (wishlist.length === 0) {
         contenedorDeseados.innerHTML = `

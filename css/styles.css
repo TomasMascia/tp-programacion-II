@@ -54,6 +54,9 @@ body {
     margin: 0;
     overflow-x: hidden;
     width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
 }
 
 img,
@@ -841,7 +844,7 @@ video {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     min-height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgTP/otroFondo.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/fondoDeseados.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -862,48 +865,6 @@ video {
     margin: 0;
 }
 
-.controles-deseados {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-}
-
-.buscador-deseados {
-    flex: 1;
-    min-width: 220px;
-    padding: 10px 18px;
-    border-radius: 25px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-tarjeta);
-    color: var(--color-texto);
-    font-size: 15px;
-    outline: none;
-    transition: border-color var(--transicion);
-}
-
-.buscador-deseados:focus {
-    border-color: var(--color-morado);
-}
-
-#ordenar-deseados {
-    padding: 10px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-tarjeta);
-    color: var(--color-texto);
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
-    transition: border-color var(--transicion);
-}
-
-#ordenar-deseados:focus {
-    border-color: var(--color-morado);
-}
-
 #contenedor-deseados {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -918,6 +879,90 @@ video {
     grid-column: 1 / -1;
     justify-self: center;
     width: calc(50% - 10px);
+}
+
+@media (max-width: 768px) {
+    #contenedor-deseados {
+        grid-template-columns: 1fr;
+    }
+
+    #contenedor-deseados .tarjeta-juego:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+
+/*controles de deseados*/
+.controles-deseados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 20px auto 30px auto;
+    max-width: 850px;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+}
+
+.buscador-deseados{
+    flex: 3;
+    width: auto;
+    min-width: 250px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    outline: none;
+    transition: border-color var(--transicion);
+}
+
+#ordenar-deseados {
+    flex: 1;
+    max-width: 220px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--transicion);
+}
+
+.buscador-deseados:focus, #ordenar-deseados:focus {
+    border-color: var(--color-morado);
+}
+
+.deseoNoEncontrado {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+.deseoNoEncontrado p {
+    color: var(--color-texto);
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* footer */
+footer {
+    margin-top: auto;
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
+    background-color: var(--color-encabezado);
+    color: var(--color-texto-secundario);
+    font-size: 14px;
 }
 
 /* ------- perfil ------- */
