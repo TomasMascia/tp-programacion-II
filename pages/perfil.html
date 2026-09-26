@@ -1,15 +1,3 @@
-Para agregar el botón de cerrar sesión a tu código, necesitamos hacer dos cosas:
-
-En el HTML: Añadir el botón con el ID btn-logout dentro de la tarjeta de perfil (profile-container) para que solo aparezca cuando el usuario haya iniciado sesión.
-
-En el JavaScript: Ya tienes gran parte del código escrito que busca btn-logout y elimina usuarioLogueado del localStorage, pero podemos asegurarnos de que funcione perfectamente y limpiar un pequeño error tipográfico en el HTML inicial (" !DOCTYPE html>).
-
-Aquí tienes los códigos actualizados y listos para usar:
-
-1. Tu código HTML modificado
-(Se añadió el botón #btn-logout justo después del formulario de cambiar contraseña)
-
-HTML
 <!DOCTYPE html>
 <html lang="es">
 
@@ -56,107 +44,110 @@ HTML
         </div>
     </header>
 
-    <main class="main-container">
-        <section id="auth-container" class="auth-section">
-            <div class="auth-card">
-                <div id="login-box">
+    <main class="contenedor-principal">
+        <section id="contenedor-login" class="seccion-login">
+            <div class="tarjeta-login">
+                <div id="caja-login">
                     <h1>Iniciar Sesión</h1>
-                    <form id="login-form" novalidate>
-                        <div class="form-group">
-                            <label for="login-email">Correo electrónico</label>
-                            <input type="email" id="login-email" required placeholder="tu_correo@example.com">
+                    <form id="formulario-login" novalidate>
+                        <div class="grupo-formulario">
+                            <label for="correo-login">Correo electrónico</label>
+                            <input type="email" id="correo-login" required placeholder="tu_correo@example.com">
                         </div>
-                        <div class="form-group">
-                            <label for="login-password">Contraseña</label>
-                            <div class="password-container">
-                                <input type="password" id="login-password" required placeholder="••••••••">
-                                <button type="button" class="toggle-password" data-target="login-password">
+                        <div class="grupo-formulario">
+                            <label for="contrasena-login">Contraseña</label>
+                            <div class="contenedor-contrasena">
+                                <input type="password" id="contrasena-login" required placeholder="••••••••">
+                                <button type="button" class="boton-ver-contrasena" data-target="contrasena-login">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </button>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary">Entrar</button>
+                        <button type="submit" class="boton-principal">Entrar</button>
                     </form>
-                    <p class="auth-redirect">
-                        ¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a>
+                    <p class="texto-cambiar-formulario">
+                        ¿No tienes cuenta? <a href="#" id="mostrar-registro">Regístrate aquí</a>
                     </p>
                 </div>
 
-                <div id="register-box" class="form-hidden">
+                <div id="caja-registro" class="formulario-oculto">
                     <h1>Crear Cuenta</h1>
-                    <form id="register-form" novalidate>
-                        <div class="form-group">
-                            <label for="reg-nickname">Nombre de usuario</label>
-                            <input type="text" id="reg-nickname" required placeholder="TuApodo">
+                    <form id="formulario-registro" novalidate>
+                        <div class="grupo-formulario">
+                            <label for="registro-nombre">Nombre de usuario</label>
+                            <input type="text" id="registro-nombre" required placeholder="TuApodo">
                         </div>
-                        <div class="form-group">
-                            <label for="reg-email">Correo electrónico</label>
-                            <input type="email" id="reg-email" required placeholder="tu_correo@gmail.com">
+                        <div class="grupo-formulario">
+                            <label for="registro-correo">Correo electrónico</label>
+                            <input type="email" id="registro-correo" required placeholder="tu_correo@gmail.com">
                         </div>
-                        <div class="form-group">
-                            <label for="reg-password">Contraseña</label>
-                            <div class="password-container">
-                                <input type="password" id="reg-password" required placeholder="••••••••">
-                                <button type="button" class="toggle-password" data-target="reg-password">
+                        <div class="grupo-formulario">
+                            <label for="registro-contrasena">Contraseña</label>
+                            <div class="contenedor-contrasena">
+                                <input type="password" id="registro-contrasena" required placeholder="••••••••">
+                                <button type="button" class="boton-ver-contrasena" data-target="registro-contrasena">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </button>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary">Registrarse</button>
+                        <button type="submit" class="boton-principal">Registrarse</button>
                     </form>
-                    <p class="auth-redirect">
-                        ¿Ya tienes una cuenta? <a href="#" id="show-login">Inicia sesión</a>
+                    <p class="texto-cambiar-formulario">
+                        ¿Ya tienes una cuenta? <a href="#" id="mostrar-login">Inicia sesión</a>
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="profile-container" class="auth-section form-hidden">
-            <div class="auth-card profile-card-wide">
+        <section id="contenedor-perfil" class="seccion-login formulario-oculto">
+            <div class="tarjeta-login tarjeta-perfil-ancha">
                 <h1>Mi Perfil</h1>
-                <form id="profile-form" novalidate>
-                    <div class="form-group">
-                        <label for="profile-nickname-input">Nombre de usuario</label>
-                        <input type="text" id="profile-nickname-input" disabled required>
+                <form id="formulario-perfil" novalidate>
+                    <div class="grupo-formulario">
+                        <label for="perfil-nombre-input">Nombre de usuario</label>
+                        <input type="text" id="perfil-nombre-input" disabled required>
                     </div>
-                    <div class="form-group">
-                        <label for="profile-email-input">Correo electrónico</label>
-                        <input type="email" id="profile-email-input" disabled required>
+                    <div class="grupo-formulario">
+                        <label for="perfil-correo-input">Correo electrónico</label>
+                        <input type="email" id="perfil-correo-input" disabled required>
                     </div>
 
-                    <div class="profile-actions">
-                        <button type="button" id="btn-edit-profile" class="btn-primary btn-secondary-color">Modificar Datos</button>
-                        <button type="submit" id="btn-save-profile" class="btn-primary form-hidden">Guardar Cambios</button>
+                    <div class="acciones-perfil">
+                        <button type="button" id="boton-editar-perfil" class="boton-principal boton-secundario">Modificar
+                            Datos</button>
+                        <button type="submit" id="boton-guardar-perfil" class="boton-principal formulario-oculto">Guardar
+                            Cambios</button>
                     </div>
                 </form>
 
-                <hr class="profile-divider">
+                <hr class="separador-perfil">
                 <h3>Cambiar Contraseña</h3>
-                <form id="change-password-form" class="profile-subform" novalidate>
-                    <div class="form-group">
-                        <label for="current-password">Contraseña actual</label>
-                        <div class="password-container">
-                            <input type="password" id="current-password" required placeholder="••••••••">
-                            <button type="button" class="toggle-password" data-target="current-password">
+                <form id="formulario-cambiar-contrasena" class="subformulario-perfil" novalidate>
+                    <div class="grupo-formulario">
+                        <label for="contrasena-actual">Contraseña actual</label>
+                        <div class="contenedor-contrasena">
+                            <input type="password" id="contrasena-actual" required placeholder="••••••••">
+                            <button type="button" class="boton-ver-contrasena" data-target="contrasena-actual">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="new-password">Nueva contraseña</label>
-                        <div class="password-container">
-                            <input type="password" id="new-password" required placeholder="••••••••">
-                            <button type="button" class="toggle-password" data-target="new-password">
+                    <div class="grupo-formulario">
+                        <label for="contrasena-nueva">Nueva contraseña</label>
+                        <div class="contenedor-contrasena">
+                            <input type="password" id="contrasena-nueva" required placeholder="••••••••">
+                            <button type="button" class="boton-ver-contrasena" data-target="contrasena-nueva">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
                         </div>
                     </div>
-                    <button type="submit" class="btn-primary btn-full-width">Actualizar Contraseña</button>
+                    <button type="submit" class="boton-principal boton-ancho-total">Actualizar Contraseña</button>
                 </form>
 
                 <!-- NUEVO BOTÓN DE CERRAR SESIÓN -->
-                <div class="profile-actions" style="margin-top: 20px;">
-                    <button type="button" id="btn-logout" class="btn-primary btn-full-width" style="background-color: #d9534f;">Cerrar Sesión</button>
+                <div class="acciones-perfil" style="margin-top: 20px;">
+                    <button type="button" id="boton-cerrar-sesion" class="boton-principal boton-ancho-total"
+                        style="background-color: #d9534f;">Cerrar Sesión</button>
                 </div>
             </div>
         </section>

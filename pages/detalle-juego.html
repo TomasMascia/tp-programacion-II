@@ -5,35 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Juego - GamesShop</title>
-
-    <!-- ICONOS -->
     <link rel="icon" href="./assets/images/icono.webp" type="image/webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- FUENTE MONTSERRAT -->
+    <!--Fuente Montserrat-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-
-    <!-- ESTILOS -->
     <link rel="stylesheet" href="../css/styles.css">
     <script>
-        // Carga inmediata del tema guardado antes de que renderice la página
         const savedTheme = localStorage.getItem("theme") || "dark";
         document.documentElement.setAttribute("data-theme", savedTheme);
     </script>
 </head>
 
 <body>
-    <!-- HEADER -->
+    <!-- header -->
     <header class="encabezado">
-        <!--Logo de la pagina con boton para volver al inicio-->
         <a class="logo-sitio" href="../index.html">
             <img class="logo-imagen" src="../assets/images/icono.webp" alt="Icono de la pagina">
         </a>
-
-        <!--Menu de navegacion para ir a las otras paginas que la componen-->
         <nav class="menu-navegacion">
             <ul class="lista-menu">
                 <li><a class="enlace-menu" href="../index.html">Inicio</a></li>
@@ -43,8 +34,6 @@
                 <li><a class="enlace-menu" href="./perfil.html">Perfil</a></li>
             </ul>
         </nav>
-
-        <!--Botones para cambiar de tema en computadora y movil-->
         <div class="acciones-encabezado">
             <!--computadora-->
             <button type="button" id="boton-tema" aria-label="Cambiar modo Día/Noche"
@@ -79,12 +68,12 @@
                 <div class="contenedor-portada">
                     <div class="carrusel-juego">
                         <div class="carrusel-items">
-                            <!-- Portada -->
+                            <!-- imagen principal -->
                             <div class="item-carrusel activo">
                                 <img id="imagen-portada-juego" alt="Portada del juego">
                             </div>
 
-                            <!-- Trailer YouTube -->
+                            <!-- trailer YouTube -->
                             <div class="item-carrusel">
                                 <iframe id="video-trailer-juego" src="" title="Trailer del juego" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -104,7 +93,7 @@
             </div>
         </section>
     </main>
-
+    <!-- footer -->
     <footer class="footer">
         <p>Programacion II - Trabajo Practico</p>
     </footer>

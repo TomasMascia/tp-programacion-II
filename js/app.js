@@ -3,6 +3,16 @@ let allGames = [];
 let cart = JSON.parse(localStorage.getItem("carrito")) || [];
 let wishlist = JSON.parse(localStorage.getItem("deseados")) || [];
 
+// comprueba si hay una sesión iniciada
+function estaLogueado() {
+    try {
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+        return Boolean(usuario && usuario.email);
+    } catch (_) {
+        return false;
+    }
+}
+
 // DOM
 const gamesContainer = document.getElementById("contenedor-juegos");
 const searchInput = document.getElementById("buscador-juegos");
@@ -10,7 +20,7 @@ const noResults = document.getElementById("sin-resultados");
 const toastContainer = document.getElementById("contenedor-notificaciones");
 const contenedorDeseados = document.getElementById("contenedor-deseados");
 
-// Detalle del juego
+// detalle de los juego
 const gameDetailBg = document.getElementById("fondo-juego");
 const gameDetailTitle = document.getElementById("titulo-juego");
 const gameDetailGenres = document.getElementById("generos-juego");
@@ -18,13 +28,13 @@ const gameDetailPrice = document.getElementById("precio-juego");
 const gameDetailCover = document.getElementById("imagen-portada-juego");
 const gameDetailTrailer = document.getElementById("video-trailer-juego");
 
-// Generador de ruta relativa para detalle de juego según la ubicación actual
+
 function getDetailPageUrl(gameId) {
     const enCarpetaPages = window.location.pathname.includes("/pages/") || window.location.pathname.includes("\\pages\\");
     return enCarpetaPages ? `./detalle-juego.html?id=${gameId}` : `./pages/detalle-juego.html?id=${gameId}`;
 }
 
-// Cargar datos desde games.json con caché para navegación instantánea
+// Cargar datos desde games.json 
 async function fetchGamesData() {
     if (allGames && allGames.length > 0) return allGames;
 
@@ -204,6 +214,11 @@ function handleCatalogClicks(e) {
 }
 
 function addToCart(gameId) {
+    if (!estaLogueado()) {
+        showToast("Debes iniciar sesión para comprar juegos.");
+        return;
+    }
+
     const game = allGames.find(g => g.id === gameId);
     if (!game) return;
 
@@ -216,15 +231,15 @@ function addToCart(gameId) {
 function mostrarNotificacion(mensaje) {
     const notificacion = document.createElement("div");
     notificacion.textContent = mensaje;
-    
-    
+
+
     Object.assign(notificacion.style, {
         position: "fixed",
         bottom: "20px",
         right: "20px",
-        backgroundColor: "#ffffff", 
+        backgroundColor: "#ffffff",
         color: "#333333",
-        border: "2px solid #6f42c1", // Color violeta para el borde
+        border: "2px solid #6f42c1",
         padding: "12px 20px",
         borderRadius: "6px",
         boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
@@ -265,12 +280,12 @@ function renderCart() {
             </div>
         `;
         resumen.innerHTML = "";
-        resumen.style.display = "none"; 
-        
+        resumen.style.display = "none";
+
         contenedor.style.width = "100%";
         return;
     }
-    resumen.style.display = "block"; 
+    resumen.style.display = "block";
     contenedor.style.width = "";
 
     const grupos = [];
@@ -305,7 +320,6 @@ function renderCart() {
 
                 <div class="info-item-carrito">
                     <h2>${juego.title}</h2>
-                    <p>Standard Edition - PC. Instant digital key</p>
                     <strong>${precioTexto}</strong>
                 </div>
 
@@ -352,6 +366,10 @@ function renderCart() {
             const id = Number(boton.dataset.id);
 
             if (boton.dataset.accion === "sumar") {
+                if (!estaLogueado()) {
+                    mostrarNotificacion("Debes iniciar sesión para comprar juegos.");
+                    return;
+                }
                 const juego = cart.find(item => item.id === id);
                 if (juego) cart.push(juego);
             } else {
@@ -380,7 +398,11 @@ function renderCart() {
 
     const btnComprar = resumen.querySelector("#btn-confirmar-pago");
     btnComprar.addEventListener("click", () => {
-        
+        if (!estaLogueado()) {
+            mostrarNotificacion("Debes iniciar sesión para realizar la compra.");
+            return;
+        }
+
         mostrarNotificacion("¡Compra realizada con éxito!");
 
         cart = [];
@@ -389,13 +411,18 @@ function renderCart() {
         localStorage.setItem("cart", JSON.stringify(cart));
 
         renderCart();
-        
+
         if (typeof updateCartCounter === 'function') {
             updateCartCounter();
         }
     });
 }
 function realizarCompra() {
+    if (!estaLogueado()) {
+        showToast("Debes iniciar sesión para realizar la compra.");
+        return;
+    }
+
     if (cart.length === 0) {
         showToast("El carrito está vacío.");
         return;
@@ -419,6 +446,11 @@ function realizarCompra() {
 
 
 function toggleWishlist(gameId, botonElemento) {
+    if (!estaLogueado()) {
+        showToast("Debes iniciar sesión para guardar juegos.");
+        return;
+    }
+
     const game = allGames.find(g => g.id === gameId);
     const indice = wishlist.indexOf(gameId);
     const icono = botonElemento.querySelector("i");
@@ -482,18 +514,18 @@ function ordenFiltroDeseados() {
             return;
         }
     }
-    
-    
 
-    if(orden === "titulo"){
+
+
+    if (orden === "titulo") {
         juegosDeseados.sort((a, b) => a.title.localeCompare(b.title));
-    } else if(orden === "reciente"){
+    } else if (orden === "reciente") {
         juegosDeseados.sort((a, b) => wishlist.indexOf(b.id) - wishlist.indexOf(a.id))
-    }else if(orden === "precio-asc"){
-        juegosDeseados.sort((a,b) => Number(a.price) - Number(b.price));
-    }else if(orden === "precio-desc"){
-        juegosDeseados.sort((a,b) => Number(b.price) - Number(a.price));
-    }else if(orden === "antiguo"){
+    } else if (orden === "precio-asc") {
+        juegosDeseados.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (orden === "precio-desc") {
+        juegosDeseados.sort((a, b) => Number(b.price) - Number(a.price));
+    } else if (orden === "antiguo") {
         juegosDeseados.sort((a, b) => wishlist.indexOf(a.id) - wishlist.indexOf(b.id));
     }
 
@@ -514,9 +546,9 @@ function MostrarDeseados() {
             <a href="./catalogo.html" class="volver">Aqui puedes seguir buscando!</a>
         </div>
         `;
-        if(controlesDeseados) controlesDeseados.style.display = "none";
+        if (controlesDeseados) controlesDeseados.style.display = "none";
     } else {
-        if(controlesDeseados) controlesDeseados.style.display = "flex";
+        if (controlesDeseados) controlesDeseados.style.display = "flex";
         ordenFiltroDeseados();
     }
 }
@@ -862,7 +894,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartCounter();
     renderCart();
 
-    // Botones de tema
+    // botones de tema
     const botonesTema = document.querySelectorAll("#boton-tema");
     botonesTema.forEach(btn => {
         if (!btn.dataset.initialized) {
@@ -871,7 +903,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Menú de navegación en móvil
+    // menu de navegación en móvil
     const botonMenuMovil = document.getElementById("boton-tema-movil");
     const menuNavegacion = document.querySelector(".menu-navegacion");
     if (botonMenuMovil && menuNavegacion && !botonMenuMovil.dataset.initialized) {
@@ -882,7 +914,7 @@ document.addEventListener("DOMContentLoaded", () => {
             botonMenuMovil.classList.toggle("activo");
         });
 
-        // Cerrar al clickear fuera del menú
+        // cerrar al clickear fuera del menú
         document.addEventListener("click", (e) => {
             if (!menuNavegacion.contains(e.target) && !botonMenuMovil.contains(e.target)) {
                 menuNavegacion.classList.remove("activo");
@@ -890,7 +922,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Cerrar al clickear en cualquier enlace del menú
+        // cerrar al clickear en cualquier enlace del menú
         menuNavegacion.querySelectorAll("a").forEach(enlace => {
             enlace.addEventListener("click", () => {
                 menuNavegacion.classList.remove("activo");
@@ -899,14 +931,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Buscador
+    // buscador
     const inputBuscador = document.getElementById("buscador-juegos");
     if (inputBuscador && !inputBuscador.dataset.initialized) {
         inputBuscador.dataset.initialized = "true";
         inputBuscador.addEventListener("input", handleSearch);
     }
 
-    // Carga de catálogo
+    // carga de catalogo
     const contenedorCatalogo = document.getElementById("contenedor-juegos");
     if (contenedorCatalogo && !contenedorCatalogo.dataset.initialized) {
         contenedorCatalogo.dataset.initialized = "true";
@@ -914,29 +946,29 @@ document.addEventListener("DOMContentLoaded", () => {
         loadCatalog();
     }
 
-    // Carga de detalle de juego
+    // carga de detalle de juego
     if (document.getElementById("fondo-juego") || document.getElementById("titulo-juego")) {
         loadGameDetail();
     }
 
-    // Carga de novedades en el inicio
+    // carga de novedades en el inicio
     if (document.getElementById("carrusel-items-inicio") || document.querySelector(".carrusel-juegos")) {
         loadHomeFeatured();
     }
 
-    // Carga Lista Deseados
+    // carga Lista Deseados
     if (contenedorDeseados) {
         contenedorDeseados.addEventListener("click", handleCatalogClicks);
 
         const buscadorDeseados = document.getElementById("buscador-deseados");
         const filtroDeseados = document.getElementById("ordenar-deseados");
 
-        if(filtroDeseados && localStorage.getItem("ordenDeseados")){
+        if (filtroDeseados && localStorage.getItem("ordenDeseados")) {
             filtroDeseados.value = localStorage.getItem("ordenDeseados");
         }
 
-        if(buscadorDeseados) buscadorDeseados.addEventListener("input", ordenFiltroDeseados);
-        if(filtroDeseados) filtroDeseados.addEventListener("change", ordenFiltroDeseados);
+        if (buscadorDeseados) buscadorDeseados.addEventListener("input", ordenFiltroDeseados);
+        if (filtroDeseados) filtroDeseados.addEventListener("change", ordenFiltroDeseados);
 
         fetchGamesData().then(games => {
             allGames = games;
@@ -945,7 +977,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Sincronización al navegar hacia atrás o adelante (historial o bfcache del navegador)
 window.addEventListener("pageshow", () => {
     cart = JSON.parse(localStorage.getItem("carrito")) || [];
     wishlist = JSON.parse(localStorage.getItem("deseados")) || [];
@@ -958,7 +989,6 @@ window.addEventListener("pageshow", () => {
         if (texto) {
             handleSearch({ target: inputBuscador });
         } else {
-            // Actualizar botones de deseados existentes sin destruir el DOM
             const botonesDeseados = contenedorCatalogo.querySelectorAll(".btn-deseados");
             if (botonesDeseados.length > 0) {
                 botonesDeseados.forEach(btn => {
@@ -982,59 +1012,59 @@ window.addEventListener("pageshow", () => {
 
 //----------------perfil
 document.addEventListener('DOMContentLoaded', () => {
-    const authContainer = document.getElementById('auth-container');
-    const profileContainer = document.getElementById('profile-container');
-    const loginBox = document.getElementById('login-box');
-    const registerBox = document.getElementById('register-box');
-    
-    const showRegisterBtn = document.getElementById('show-register');
-    const showLoginBtn = document.getElementById('show-login');
-    
-    const registerForm = document.getElementById('register-form');
-    const loginForm = document.getElementById('login-form');
-    
-    const profileForm = document.getElementById('profile-form');
-    const profileNicknameInput = document.getElementById('profile-nickname-input');
-    const profileEmailInput = document.getElementById('profile-email-input');
-    const btnEditProfile = document.getElementById('btn-edit-profile');
-    const btnSaveProfile = document.getElementById('btn-save-profile');
-    const changePasswordForm = document.getElementById('change-password-form');
-    
-    const btnLogout = document.getElementById('btn-logout');
+    const authContainer = document.getElementById('contenedor-login');
+    const profileContainer = document.getElementById('contenedor-perfil');
+    const loginBox = document.getElementById('caja-login');
+    const registerBox = document.getElementById('caja-registro');
+
+    const showRegisterBtn = document.getElementById('mostrar-registro');
+    const showLoginBtn = document.getElementById('mostrar-login');
+
+    const registerForm = document.getElementById('formulario-registro');
+    const loginForm = document.getElementById('formulario-login');
+
+    const profileForm = document.getElementById('formulario-perfil');
+    const profileNicknameInput = document.getElementById('perfil-nombre-input');
+    const profileEmailInput = document.getElementById('perfil-correo-input');
+    const btnEditProfile = document.getElementById('boton-editar-perfil');
+    const btnSaveProfile = document.getElementById('boton-guardar-perfil');
+    const changePasswordForm = document.getElementById('formulario-cambiar-contrasena');
+
+    const btnLogout = document.getElementById('boton-cerrar-sesion');
 
     const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
 
     if (usuarioLogueado) {
-        if (authContainer) authContainer.classList.add('form-hidden');
-        if (profileContainer) profileContainer.classList.remove('form-hidden');
-        
+        if (authContainer) authContainer.classList.add('formulario-oculto');
+        if (profileContainer) profileContainer.classList.remove('formulario-oculto');
+
         if (profileNicknameInput) profileNicknameInput.value = usuarioLogueado.nickname;
         if (profileEmailInput) profileEmailInput.value = usuarioLogueado.email;
     } else {
-        if (authContainer) authContainer.classList.remove('form-hidden');
-        if (profileContainer) profileContainer.classList.add('form-hidden');
+        if (authContainer) authContainer.classList.remove('formulario-oculto');
+        if (profileContainer) profileContainer.classList.add('formulario-oculto');
     }
 
     if (showRegisterBtn && showLoginBtn) {
         showRegisterBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            loginBox.classList.add('form-hidden');
-            registerBox.classList.remove('form-hidden');
+            loginBox.classList.add('formulario-oculto');
+            registerBox.classList.remove('formulario-oculto');
         });
 
         showLoginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            registerBox.classList.add('form-hidden');
-            loginBox.classList.remove('form-hidden');
+            registerBox.classList.add('formulario-oculto');
+            loginBox.classList.remove('formulario-oculto');
         });
     }
 
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const nickname = document.getElementById('reg-nickname').value.trim();
-            const email = document.getElementById('reg-email').value.trim();
-            const password = document.getElementById('reg-password').value.trim();
+            const nickname = document.getElementById('registro-nombre').value.trim();
+            const email = document.getElementById('registro-correo').value.trim();
+            const password = document.getElementById('registro-contrasena').value.trim();
 
             if (nickname === "" || email === "" || password === "") {
                 alert('Por favor, completa todos los campos obligatorios.');
@@ -1043,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!regexEmail.test(email)) {
-                alert('Formato de correo electrónico incorrecto.');
+                alert('Formato de correo electrónico incorrecto');
                 return;
             }
 
@@ -1060,16 +1090,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             alert('Registro exitoso. Ahora inicia sesión.');
             registerForm.reset();
-            registerBox.classList.add('form-hidden');
-            loginBox.classList.remove('form-hidden');
+            registerBox.classList.add('formulario-oculto');
+            loginBox.classList.remove('formulario-oculto');
         });
     }
 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('login-email').value.trim();
-            const password = document.getElementById('login-password').value.trim();
+            const email = document.getElementById('correo-login').value.trim();
+            const password = document.getElementById('contrasena-login').value.trim();
 
             if (email === "" || password === "") {
                 alert('Todos los campos son obligatorios para iniciar sesión.');
@@ -1094,8 +1124,8 @@ document.addEventListener('DOMContentLoaded', () => {
             profileEmailInput.removeAttribute('disabled');
             profileNicknameInput.focus();
 
-            btnEditProfile.classList.add('form-hidden');
-            btnSaveProfile.classList.remove('form-hidden');
+            btnEditProfile.classList.add('formulario-oculto');
+            btnSaveProfile.classList.remove('formulario-oculto');
         });
     }
 
@@ -1140,8 +1170,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (changePasswordForm) {
         changePasswordForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const currentPassword = document.getElementById('current-password').value.trim();
-            const newPassword = document.getElementById('new-password').value.trim();
+            const currentPassword = document.getElementById('contrasena-actual').value.trim();
+            const newPassword = document.getElementById('contrasena-nueva').value.trim();
 
             if (currentPassword === "" || newPassword === "") {
                 alert('Debes completar ambos campos de contraseña.');
@@ -1177,7 +1207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             changePasswordForm.reset();
         });
     }
-    
+
     if (btnLogout) {
         btnLogout.addEventListener('click', () => {
             localStorage.removeItem('usuarioLogueado');
@@ -1185,7 +1215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+    const togglePasswordButtons = document.querySelectorAll('.boton-ver-contrasena');
 
     togglePasswordButtons.forEach(button => {
         button.addEventListener('click', () => {
